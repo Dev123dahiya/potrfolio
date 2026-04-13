@@ -395,6 +395,7 @@ h3 {
 }
 
 .project-grid,
+.other-project-grid,
 .resume-grid,
 .process-grid {
   display: grid;
@@ -417,6 +418,14 @@ h3 {
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.project-card:first-child {
+  grid-column: span 2;
+}
+
+.project-card:first-child .project-visual {
+  height: 20rem;
 }
 
 .project-card:hover {
@@ -535,6 +544,59 @@ h3 {
   gap: 0.7rem;
 }
 
+.other-project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.other-project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 18rem;
+  padding: 1.35rem;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+    var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.other-project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(123, 224, 214, 0.32);
+  background:
+    linear-gradient(135deg, rgba(123, 224, 214, 0.08), rgba(255, 142, 60, 0.06)),
+    var(--panel);
+}
+
+.other-project-card span {
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  color: var(--cool);
+  background: rgba(123, 224, 214, 0.08);
+  border: 1px solid rgba(123, 224, 214, 0.16);
+  font-size: 0.8rem;
+}
+
+.other-project-card h3 {
+  line-height: 1.12;
+}
+
+.other-project-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.other-project-card .project-link {
+  margin-top: auto;
+  width: fit-content;
+}
+
 .process-card,
 .resume-card,
 .about-panel,
@@ -631,9 +693,18 @@ h3 {
   .section-split,
   .contact-card,
   .project-grid,
+  .other-project-grid,
   .resume-grid,
   .process-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-card:first-child {
+    grid-column: span 1;
+  }
+
+  .project-card:first-child .project-visual {
+    height: 17rem;
   }
 
   .hero {
@@ -671,6 +742,10 @@ h3 {
   }
 
   .project-visual {
+    height: 14rem;
+  }
+
+  .project-card:first-child .project-visual {
     height: 14rem;
   }
 

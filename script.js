@@ -6,8 +6,8 @@ const projects = [
     summary:
       "A GROQ-powered Generative AI pipeline that analyzes invoices, extracts structured fields from PDFs, and turns them into carbon-emission insights for sustainability reporting.",
     tags: ["GROQ", "LLMs", "NLP", "Streamlit", "Pandas"],
-    linkLabel: "Discuss project",
-    linkHref: "#contact",
+    linkLabel: "GitHub repo",
+    linkHref: "https://github.com/Dev123dahiya/Invoice_Parser",
     background:
       "linear-gradient(135deg, rgba(255, 142, 60, 0.9), rgba(67, 33, 12, 0.35)), radial-gradient(circle at top left, rgba(255, 235, 190, 0.55), transparent 40%)",
   },
@@ -37,17 +37,44 @@ const projects = [
     background:
       "linear-gradient(135deg, rgba(222, 192, 152, 0.88), rgba(53, 38, 24, 0.38)), radial-gradient(circle at 75% 25%, rgba(255, 242, 223, 0.38), transparent 33%)",
   },
+];
+
+const otherProjects = [
   {
     title: "Forensic Deepfake Audio Detection",
-    image: "assets/project-deepfake-audio.svg",
-    outcome: "Published research at ICICC 2026",
-    summary:
-      "Published ICICC 2026 research using CNN feature extraction, BiLSTM sequence modeling, attention mechanisms, MFCC, and mel-spectrogram features to detect deepfake audio.",
-    tags: ["CNN", "BiLSTM", "Attention", "MFCC", "Research"],
-    linkLabel: "Read resume details",
-    linkHref: "assets/Dev-Dahiya-GenAI-Engineer-Resume.pdf",
-    background:
-      "linear-gradient(135deg, rgba(80, 114, 255, 0.82), rgba(18, 21, 56, 0.42)), radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.32), transparent 35%)",
+    summary: "CNN, BiLSTM, attention, MFCC, and mel-spectrogram based audio deepfake detection research.",
+    language: "Python / Jupyter",
+    linkHref: "https://github.com/Dev123dahiya/Deepfake_Auido_Detection",
+  },
+  {
+    title: "Smart Hospital Management System",
+    summary: "JavaScript-based hospital management project for handling healthcare workflows.",
+    language: "JavaScript",
+    linkHref: "https://github.com/Dev123dahiya/Smart-Hospital-Management-System",
+  },
+  {
+    title: "OrbitX",
+    summary: "Python project from your GitHub profile, grouped here as additional technical work.",
+    language: "Python",
+    linkHref: "https://github.com/Dev123dahiya/OrbitX",
+  },
+  {
+    title: "Malware Detection",
+    summary: "Notebook-based machine learning work focused on malware detection experimentation.",
+    language: "Jupyter Notebook",
+    linkHref: "https://github.com/Dev123dahiya/Malware-Detection",
+  },
+  {
+    title: "Weather",
+    summary: "Data/notebook project from your GitHub portfolio showing additional experimentation.",
+    language: "Jupyter Notebook",
+    linkHref: "https://github.com/Dev123dahiya/weather",
+  },
+  {
+    title: "QR Detection System",
+    summary: "QR detection and QR-related projects from your public GitHub repositories.",
+    language: "HTML / Web",
+    linkHref: "https://github.com/Dev123dahiya/QR-Detection-System",
   },
 ];
 
@@ -74,6 +101,20 @@ projects.forEach((project) => {
     </div>
   `;
   projectGrid.appendChild(card);
+});
+
+const otherProjectGrid = document.querySelector("#other-project-grid");
+
+otherProjects.forEach((project) => {
+  const card = document.createElement("article");
+  card.className = "other-project-card";
+  card.innerHTML = `
+    <span>${project.language}</span>
+    <h3>${project.title}</h3>
+    <p>${project.summary}</p>
+    <a class="project-link" href="${project.linkHref}" target="_blank" rel="noreferrer">View on GitHub</a>
+  `;
+  otherProjectGrid.appendChild(card);
 });
 
 const revealItems = document.querySelectorAll(".reveal");
