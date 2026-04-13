@@ -1,0 +1,16 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="620" rx="52" fill="#142033"/>
+  <circle cx="182" cy="86" r="180" fill="#FF8E3C" fill-opacity=".34"/>
+  <circle cx="746" cy="516" r="260" fill="#7BE0D6" fill-opacity=".22"/>
+  <rect x="84" y="90" width="336" height="440" rx="28" fill="#F4EFE7"/>
+  <rect x="128" y="144" width="154" height="20" rx="10" fill="#142033"/>
+  <rect x="128" y="196" width="230" height="14" rx="7" fill="#9AA0A9"/>
+  <rect x="128" y="232" width="190" height="14" rx="7" fill="#9AA0A9"/>
+  <rect x="128" y="296" width="248" height="96" rx="18" fill="#FFE1BD"/>
+  <rect x="156" y="326" width="102" height="16" rx="8" fill="#FF8E3C"/>
+  <rect x="156" y="356" width="168" height="12" rx="6" fill="#142033" fill-opacity=".5"/>
+  <path d="M520 172C604 112 724 136 778 222C832 308 804 422 720 482C636 542 516 518 462 432C408 346 436 232 520 172Z" fill="#0B1425" stroke="#7BE0D6" stroke-width="4"/>
+  <path d="M574 260H692M574 310H734M574 360H670" stroke="#F4EFE7" stroke-width="18" stroke-linecap="round"/>
+  <path d="M456 310H420M520 310H484" stroke="#FFC76D" stroke-width="12" stroke-linecap="round"/>
+  <text x="514" y="478" fill="#FFC76D" font-family="Space Grotesk, Arial, sans-serif" font-size="44" font-weight="700">CO2e</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="620" rx="52" fill="#1B1713"/>
+  <circle cx="190" cy="500" r="230" fill="#FFC76D" fill-opacity=".24"/>
+  <circle cx="730" cy="118" r="210" fill="#7BE0D6" fill-opacity=".18"/>
+  <rect x="96" y="110" width="708" height="400" rx="36" fill="#F4EFE7"/>
+  <rect x="96" y="110" width="708" height="82" rx="36" fill="#142033"/>
+  <circle cx="154" cy="151" r="12" fill="#FF8E3C"/>
+  <circle cx="194" cy="151" r="12" fill="#FFC76D"/>
+  <circle cx="234" cy="151" r="12" fill="#7BE0D6"/>
+  <rect x="150" y="244" width="210" height="176" rx="24" fill="#FFE4C5"/>
+  <rect x="410" y="244" width="340" height="46" rx="23" fill="#142033" fill-opacity=".16"/>
+  <rect x="410" y="322" width="284" height="46" rx="23" fill="#142033" fill-opacity=".16"/>
+  <rect x="410" y="400" width="222" height="46" rx="23" fill="#FF8E3C"/>
+  <path d="M196 314L238 356L318 276" stroke="#142033" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="426" y="434" fill="#142033" font-family="Space Grotesk, Arial, sans-serif" font-size="30" font-weight="700">Approved</text>
+</svg>
