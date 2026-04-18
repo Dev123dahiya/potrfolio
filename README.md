@@ -1,6 +1,6 @@
 # Dev Kumar Dahiya Portfolio
 
-Static portfolio website for Dev Kumar Dahiya, focused on Generative AI, NLP, deep learning, and full-stack software projects.
+Static portfolio website for Dev Kumar Dahiya, focused on software development, Python, AI, data, cloud, and full-stack projects.
 
 ## Publish
 

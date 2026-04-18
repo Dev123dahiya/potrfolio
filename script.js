@@ -1,11 +1,11 @@
 const projects = [
   {
-    title: "LLM Carbon Invoice Analyzer",
+    title: "Carbon Invoice Analyzer",
     image: "assets/project-llm-invoice.svg",
     outcome: "~90% field extraction accuracy",
     summary:
-      "A GROQ-powered Generative AI pipeline that analyzes invoices, extracts structured fields from PDFs, and turns them into carbon-emission insights for sustainability reporting.",
-    tags: ["GROQ", "LLMs", "NLP", "Streamlit", "Pandas"],
+      "A Python document automation pipeline that analyzes invoices, extracts structured fields from PDFs, and turns them into carbon-emission insights for sustainability reporting.",
+    tags: ["Python", "NLP", "Streamlit", "Pandas", "APIs"],
     linkLabel: "GitHub repo",
     linkHref: "https://github.com/Dev123dahiya/Invoice_Parser",
     background:
