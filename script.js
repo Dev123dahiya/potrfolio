@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Leave Request Management System",
     image: "assets/project-leave-system.svg",
-    outcome: "Full-stack app with role access",
+    outcome: "Sub-2s cloud-deployed app",
     summary:
       "A full-stack leave management platform with employee and manager dashboards, JWT-based role access, REST APIs, MongoDB Atlas, and cloud deployment.",
     tags: ["React", "Node.js", "Express", "MongoDB", "JWT"],
@@ -40,6 +40,13 @@ const projects = [
 ];
 
 const otherProjects = [
+  {
+    title: "IoT Data Monitoring & Automation",
+    summary: "Conceptual edge-to-cloud monitoring system with simulated sensor ingestion, Python alerts, dashboard metrics, and real-time automation logic.",
+    language: "Python / IoT",
+    linkHref: "assets/Dev-Kumar-Dahiya-IoT-Resume.pdf",
+    linkLabel: "View IoT resume",
+  },
   {
     title: "Forensic Deepfake Audio Detection",
     summary: "CNN, BiLSTM, attention, MFCC, and mel-spectrogram based audio deepfake detection research.",
@@ -112,7 +119,7 @@ otherProjects.forEach((project) => {
     <span>${project.language}</span>
     <h3>${project.title}</h3>
     <p>${project.summary}</p>
-    <a class="project-link" href="${project.linkHref}" target="_blank" rel="noreferrer">View on GitHub</a>
+    <a class="project-link" href="${project.linkHref}" target="_blank" rel="noreferrer">${project.linkLabel || "View on GitHub"}</a>
   `;
   otherProjectGrid.appendChild(card);
 });
