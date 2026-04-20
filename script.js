@@ -1,5 +1,19 @@
 const projects = [
   {
+    title: "AI Workflow Design Assessment",
+    image: "assets/flat50-ad-1080x1080.png",
+    outcome: "PSD, AI, SVG, and final PNG included",
+    summary:
+      "A Flat 50% OFF social media creative built for an AI workflow hiring assessment, with attention to typography, contrast, spacing, visual hierarchy, and editable handoff files.",
+    tags: ["Photoshop", "Illustrator", "Visual QA", "Hierarchy", "Dataset assets"],
+    linkLabel: "View final creative",
+    linkHref: "assets/flat50-ad-1080x1080.png",
+    repoHref: "assets/flat50-ad.ai",
+    repoLabel: "Open AI source",
+    background:
+      "linear-gradient(135deg, rgba(255, 63, 105, 0.78), rgba(12, 18, 34, 0.58)), radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.34), transparent 34%)",
+  },
+  {
     title: "Carbon Invoice Analyzer",
     image: "assets/project-llm-invoice.svg",
     outcome: "~90% field extraction accuracy",
@@ -40,6 +54,13 @@ const projects = [
 ];
 
 const otherProjects = [
+  {
+    title: "Visual Dataset QA Readiness",
+    summary: "Portfolio evidence for image curation, design readability checks, editable file handoff, and visual hierarchy review for AI training datasets.",
+    language: "Design / AI Ops",
+    linkHref: "assets/flat50-ad-editable.svg",
+    linkLabel: "View editable SVG",
+  },
   {
     title: "IoT Data Monitoring & Automation",
     summary: "Conceptual edge-to-cloud monitoring system with simulated sensor ingestion, Python alerts, dashboard metrics, and real-time automation logic.",
@@ -103,7 +124,7 @@ projects.forEach((project) => {
       </div>
       <div class="project-actions">
         <a class="project-link" href="${project.linkHref}" target="${project.linkHref.startsWith("http") || project.linkHref.endsWith(".pdf") ? "_blank" : "_self"}" rel="noreferrer">${project.linkLabel}</a>
-        ${project.repoHref ? `<a class="project-link" href="${project.repoHref}" target="_blank" rel="noreferrer">GitHub repo</a>` : ""}
+        ${project.repoHref ? `<a class="project-link" href="${project.repoHref}" target="_blank" rel="noreferrer">${project.repoLabel || "GitHub repo"}</a>` : ""}
       </div>
     </div>
   `;

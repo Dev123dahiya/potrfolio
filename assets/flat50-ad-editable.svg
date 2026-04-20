@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 1080 1080" width="1080" height="1080"
+     font-family="'Helvetica Neue', Arial, sans-serif">
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 1: BACKGROUND
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Background" inkscape:label="Background">
+
+    <!-- Deep navy base -->
+    <rect id="bg-base" x="0" y="0" width="1080" height="1080" fill="#0A0F1E"/>
+
+    <!-- Subtle radial glow - center -->
+    <radialGradient id="centerGlow" cx="50%" cy="48%" r="55%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1A2B5E" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0A0F1E" stop-opacity="0"/>
+    </radialGradient>
+    <rect x="0" y="0" width="1080" height="1080" fill="url(#centerGlow)"/>
+
+    <!-- Diagonal accent stripe - top right -->
+    <polygon id="stripe-tr" points="680,0 1080,0 1080,400 820,0" fill="#FF3C5F" opacity="0.12"/>
+    <!-- Diagonal accent stripe - bottom left -->
+    <polygon id="stripe-bl" points="0,700 260,1080 0,1080" fill="#FF3C5F" opacity="0.10"/>
+
+    <!-- Fine grid dots pattern -->
+    <defs>
+      <pattern id="dots" x="0" y="0" width="54" height="54" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="1.2" fill="#FFFFFF" opacity="0.04"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="1080" height="1080" fill="url(#dots)"/>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 2: DECORATIVE SHAPES
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Decorative" inkscape:label="Decorative Shapes">
+
+    <!-- Large hollow circle - top right -->
+    <circle id="circle-tr" cx="980" cy="140" r="200" fill="none" stroke="#FF3C5F" stroke-width="1.5" opacity="0.2"/>
+    <circle id="circle-tr-inner" cx="980" cy="140" r="150" fill="none" stroke="#FF3C5F" stroke-width="0.8" opacity="0.12"/>
+
+    <!-- Large hollow circle - bottom left -->
+    <circle id="circle-bl" cx="100" cy="960" r="180" fill="none" stroke="#4A6CF7" stroke-width="1.5" opacity="0.2"/>
+    <circle id="circle-bl-inner" cx="100" cy="960" r="120" fill="none" stroke="#4A6CF7" stroke-width="0.8" opacity="0.12"/>
+
+    <!-- Small accent circles -->
+    <circle id="dot-1" cx="200" cy="200" r="6" fill="#FF3C5F" opacity="0.5"/>
+    <circle id="dot-2" cx="880" cy="880" r="6" fill="#4A6CF7" opacity="0.5"/>
+    <circle id="dot-3" cx="150" cy="540" r="4" fill="#FFFFFF" opacity="0.2"/>
+    <circle id="dot-4" cx="930" cy="540" r="4" fill="#FFFFFF" opacity="0.2"/>
+
+    <!-- Thin horizontal divider lines -->
+    <line id="divider-top" x1="80" y1="200" x2="400" y2="200" stroke="#FFFFFF" stroke-width="0.5" opacity="0.15"/>
+    <line id="divider-bottom" x1="680" y1="880" x2="1000" y2="880" stroke="#FFFFFF" stroke-width="0.5" opacity="0.15"/>
+
+    <!-- Corner accent — top left -->
+    <rect id="corner-tl" x="60" y="60" width="60" height="3" fill="#FF3C5F" opacity="0.7" rx="1.5"/>
+    <rect id="corner-tl-v" x="60" y="60" width="3" height="60" fill="#FF3C5F" opacity="0.7" rx="1.5"/>
+
+    <!-- Corner accent — bottom right -->
+    <rect id="corner-br" x="960" y="1017" width="60" height="3" fill="#FF3C5F" opacity="0.7" rx="1.5"/>
+    <rect id="corner-br-v" x="1017" y="957" width="3" height="63" fill="#FF3C5F" opacity="0.7" rx="1.5"/>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 3: BRAND IDENTITY
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Brand" inkscape:label="Brand Identity">
+
+    <!-- Brand logo mark — top centre -->
+    <g id="logo-group" transform="translate(540, 108)">
+      <!-- Logo pill background -->
+      <rect x="-70" y="-22" width="140" height="44" rx="22" fill="#FFFFFF" opacity="0.06" stroke="#FFFFFF" stroke-width="0.8" stroke-opacity="0.2"/>
+      <!-- Logo text -->
+      <text id="brand-name" text-anchor="middle" y="8"
+            font-size="18" font-weight="700" letter-spacing="6"
+            fill="#FFFFFF" opacity="0.85">LUMIÈRE</text>
+    </g>
+
+    <!-- Tagline under brand -->
+    <text id="tagline" x="540" y="148" text-anchor="middle"
+          font-size="11" font-weight="400" letter-spacing="3.5"
+          fill="#FFFFFF" opacity="0.35">FASHION &amp; LIFESTYLE</text>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 4: OFFER CONTENT
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Offer" inkscape:label="Offer Content">
+
+    <!-- "LIMITED TIME OFFER" pill label -->
+    <g id="offer-pill" transform="translate(540, 290)">
+      <rect x="-115" y="-18" width="230" height="36" rx="18"
+            fill="#FF3C5F" opacity="1"/>
+      <text text-anchor="middle" y="6"
+            font-size="11" font-weight="700" letter-spacing="3.5"
+            fill="#FFFFFF">LIMITED TIME OFFER</text>
+    </g>
+
+    <!-- "FLAT" eyebrow text -->
+    <text id="flat-text" x="540" y="390" text-anchor="middle"
+          font-size="52" font-weight="300" letter-spacing="18"
+          fill="#FFFFFF" opacity="0.6">FLAT</text>
+
+    <!-- Main "50% OFF" headline -->
+    <g id="headline-group">
+
+      <!-- Glow behind 50% -->
+      <radialGradient id="textGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FF3C5F" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#FF3C5F" stop-opacity="0"/>
+      </radialGradient>
+      <ellipse cx="540" cy="510" rx="320" ry="120" fill="url(#textGlow)"/>
+
+      <!-- 50% number -->
+      <text id="offer-number" x="440" y="570" text-anchor="middle"
+            font-size="260" font-weight="800" letter-spacing="-8"
+            fill="url(#offerGrad)">50</text>
+
+      <!-- Gradient for 50 -->
+      <defs>
+        <linearGradient id="offerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#C8D0F0"/>
+        </linearGradient>
+        <linearGradient id="offGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FF3C5F"/>
+          <stop offset="100%" stop-color="#C42048"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Percent sign -->
+      <text id="percent" x="720" y="460" text-anchor="middle"
+            font-size="110" font-weight="800"
+            fill="url(#offGrad)">%</text>
+
+      <!-- OFF text -->
+      <text id="off-text" x="820" y="570" text-anchor="middle"
+            font-size="110" font-weight="800" letter-spacing="-2"
+            fill="url(#offGrad)">OFF</text>
+
+    </g>
+
+    <!-- Horizontal rule under headline -->
+    <line id="hr-mid" x1="200" y1="610" x2="880" y2="610"
+          stroke="url(#hrGrad)" stroke-width="1" opacity="0.4"/>
+    <defs>
+      <linearGradient id="hrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#0A0F1E" stop-opacity="0"/>
+        <stop offset="30%" stop-color="#FF3C5F" stop-opacity="1"/>
+        <stop offset="70%" stop-color="#FF3C5F" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#0A0F1E" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 5: SUPPORTING COPY
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Copy" inkscape:label="Supporting Copy">
+
+    <!-- Sub-copy line 1 -->
+    <text id="copy-1" x="540" y="670" text-anchor="middle"
+          font-size="22" font-weight="300" letter-spacing="2"
+          fill="#FFFFFF" opacity="0.55">ON ALL PREMIUM COLLECTIONS</text>
+
+    <!-- Sub-copy line 2 — validity -->
+    <text id="copy-validity" x="540" y="710" text-anchor="middle"
+          font-size="14" font-weight="400" letter-spacing="1.5"
+          fill="#FF3C5F" opacity="0.85">This Weekend Only  ·  Ends Sunday Midnight</text>
+
+    <!-- Feature bullets row -->
+    <g id="features" transform="translate(540, 790)">
+
+      <!-- Feature 1 -->
+      <g id="feat-1" transform="translate(-230, 0)">
+        <circle cx="0" cy="-6" r="20" fill="#FFFFFF" opacity="0.05" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.15"/>
+        <text x="0" y="-1" text-anchor="middle" font-size="15" fill="#4A6CF7">✦</text>
+        <text x="0" y="24" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1" fill="#FFFFFF" opacity="0.7">FREE SHIPPING</text>
+      </g>
+
+      <!-- Divider dot -->
+      <circle cx="-75" cy="-6" r="2" fill="#FFFFFF" opacity="0.2"/>
+
+      <!-- Feature 2 -->
+      <g id="feat-2" transform="translate(0, 0)">
+        <circle cx="0" cy="-6" r="20" fill="#FFFFFF" opacity="0.05" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.15"/>
+        <text x="0" y="-1" text-anchor="middle" font-size="15" fill="#4A6CF7">✦</text>
+        <text x="0" y="24" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1" fill="#FFFFFF" opacity="0.7">EASY RETURNS</text>
+      </g>
+
+      <!-- Divider dot -->
+      <circle cx="75" cy="-6" r="2" fill="#FFFFFF" opacity="0.2"/>
+
+      <!-- Feature 3 -->
+      <g id="feat-3" transform="translate(230, 0)">
+        <circle cx="0" cy="-6" r="20" fill="#FFFFFF" opacity="0.05" stroke="#FFFFFF" stroke-width="0.5" stroke-opacity="0.15"/>
+        <text x="0" y="-1" text-anchor="middle" font-size="15" fill="#4A6CF7">✦</text>
+        <text x="0" y="24" text-anchor="middle" font-size="12" font-weight="600" letter-spacing="1" fill="#FFFFFF" opacity="0.7">SECURE PAYMENT</text>
+      </g>
+
+    </g>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 6: CALL TO ACTION
+  ════════════════════════════════════════════ -->
+  <g id="Layer_CTA" inkscape:label="Call To Action">
+
+    <!-- CTA button -->
+    <g id="cta-button" transform="translate(540, 910)">
+
+      <!-- Button outer glow -->
+      <rect x="-130" y="-26" width="260" height="52" rx="26"
+            fill="#FF3C5F" opacity="0.2" transform="scale(1.08)"/>
+
+      <!-- Button fill -->
+      <rect id="cta-bg" x="-130" y="-26" width="260" height="52" rx="26"
+            fill="#FF3C5F"/>
+
+      <!-- Button subtle inner gradient -->
+      <defs>
+        <linearGradient id="ctaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FF5B78"/>
+          <stop offset="100%" stop-color="#E02248"/>
+        </linearGradient>
+      </defs>
+      <rect x="-130" y="-26" width="260" height="52" rx="26" fill="url(#ctaGrad)"/>
+
+      <!-- CTA text -->
+      <text id="cta-label" text-anchor="middle" y="7"
+            font-size="17" font-weight="700" letter-spacing="4"
+            fill="#FFFFFF">SHOP NOW</text>
+
+      <!-- Arrow indicator -->
+      <g transform="translate(108, 0)">
+        <circle cx="0" cy="0" r="13" fill="#FFFFFF" opacity="0.18"/>
+        <text x="0" y="5" text-anchor="middle" font-size="12" fill="#FFFFFF">→</text>
+      </g>
+
+    </g>
+
+    <!-- Use code label -->
+    <text id="promo-code-label" x="540" y="970" text-anchor="middle"
+          font-size="12" font-weight="400" letter-spacing="1.5"
+          fill="#FFFFFF" opacity="0.3">USE CODE:</text>
+    <text id="promo-code" x="540" y="990" text-anchor="middle"
+          font-size="14" font-weight="700" letter-spacing="4"
+          fill="#FF3C5F" opacity="0.9">FLAT50</text>
+
+  </g>
+
+  <!-- ═══════════════════════════════════════════
+       LAYER 7: FOOTER
+  ════════════════════════════════════════════ -->
+  <g id="Layer_Footer" inkscape:label="Footer">
+
+    <line x1="80" y1="1030" x2="1000" y2="1030"
+          stroke="#FFFFFF" stroke-width="0.5" opacity="0.1"/>
+
+    <text id="footer-url" x="540" y="1058" text-anchor="middle"
+          font-size="11" font-weight="400" letter-spacing="2"
+          fill="#FFFFFF" opacity="0.25">www.lumiere.store</text>
+
+  </g>
+
+</svg>

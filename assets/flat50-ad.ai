@@ -1,0 +1,341 @@
+%!PS-Adobe-3.0
+%%Creator: Adobe Illustrator 26.0
+%%AI8_CreatorVersion: 26.0.0
+%%For: (Lumiere Brand) ()
+%%Title: (flat50_ad.ai)
+%%CreationDate: 4/21/2026
+%%DocumentColorModel: CMYK
+%%BoundingBox: 0 0 1080 1080
+%%HiResBoundingBox: 0 0 1080 1080
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%CMYKCustomColor:
+%%EndComments
+
+%%BeginProlog
+%%EndProlog
+
+%%BeginSetup
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%EndPageSetup
+
+% Adobe Illustrator AI9 file format
+% Canvas: 1080 x 1080 px
+
+% ============================================
+% LAYER: Background
+% ============================================
+% Deep Navy Background
+0.96 0.94 0.06 0.88 k
+0 0 1080 1080 rectfill
+
+% ============================================
+% LAYER: Decorative Shapes
+% ============================================
+% Top-right large circle (stroke only)
+0.72 0.72 0 0 k
+[] 0 setdash
+1.5 setlinewidth
+newpath
+980 940 200 0 360 arc
+stroke
+
+% Inner circle top-right
+0.8 setlinewidth
+newpath
+980 940 150 0 360 arc
+stroke
+
+% Bottom-left large circle
+0.70 0.56 0 0 k
+1.5 setlinewidth
+newpath
+100 120 180 0 360 arc
+stroke
+
+0.8 setlinewidth
+newpath
+100 120 120 0 360 arc
+stroke
+
+% Corner accent top-left horizontal
+0 1 0.63 0 k
+60 1017 moveto
+120 1017 lineto
+3 setlinewidth
+stroke
+
+% Corner accent top-left vertical
+60 1017 moveto
+60 957 lineto
+3 setlinewidth
+stroke
+
+% Corner accent bottom-right horizontal
+960 63 moveto
+1020 63 lineto
+3 setlinewidth
+stroke
+
+% Corner accent bottom-right vertical
+1017 63 moveto
+1017 123 lineto
+3 setlinewidth
+stroke
+
+% ============================================
+% LAYER: Brand Identity
+% ============================================
+% Brand name "LUMIERE"
+0 0 0 0 k
+/Helvetica-Bold findfont
+18 scalefont
+setfont
+475 972 moveto
+(LUMIERE) show
+
+% Tagline
+/Helvetica findfont
+11 scalefont
+setfont
+0 0 0 0.65 k
+430 952 moveto
+(FASHION & LIFESTYLE) show
+
+% ============================================
+% LAYER: Offer Pill Badge
+% ============================================
+% "LIMITED TIME OFFER" pill - Red background
+0 1 0.63 0 k
+newpath
+425 782 moveto
+655 782 lineto
+655 818 lineto
+425 818 lineto
+closepath
+fill
+
+% Pill rounded corners
+newpath
+425 800 18 90 270 arc
+closepath
+fill
+newpath
+655 800 18 270 90 arc
+closepath
+fill
+
+% Pill text
+0 0 0 0 k
+/Helvetica-Bold findfont
+11 scalefont
+setfont
+438 796 moveto
+(LIMITED TIME OFFER) show
+
+% ============================================
+% LAYER: "FLAT" Eyebrow Text
+% ============================================
+0 0 0 0 k
+/Helvetica-Light findfont
+52 scalefont
+setfont
+0 0 0 0 k
+370 730 moveto
+(FLAT) show
+
+% ============================================
+% LAYER: Main Headline "50% OFF"
+% ============================================
+
+% "50" - Large white text
+0 0 0 0 k
+/Helvetica-Bold findfont
+260 scalefont
+setfont
+130 490 moveto
+(50) show
+
+% "%" - Red
+0 1 0.63 0 k
+/Helvetica-Bold findfont
+110 scalefont
+setfont
+670 620 moveto
+(%) show
+
+% "OFF" - Red
+0 1 0.63 0 k
+/Helvetica-Bold findfont
+110 scalefont
+setfont
+720 490 moveto
+(OFF) show
+
+% ============================================
+% LAYER: Horizontal Rule
+% ============================================
+% Gradient-like rule (simulated with tint)
+0 0 0 0.60 k
+0.5 setlinewidth
+200 470 moveto
+880 470 lineto
+stroke
+
+% ============================================
+% LAYER: Supporting Copy
+% ============================================
+% Sub copy line 1
+0 0 0 0 k
+/Helvetica-Light findfont
+22 scalefont
+setfont
+0 0 0 0.45 k
+300 430 moveto
+(ON ALL PREMIUM COLLECTIONS) show
+
+% Validity line
+0 1 0.63 0 k
+/Helvetica findfont
+14 scalefont
+setfont
+240 395 moveto
+(This Weekend Only  .  Ends Sunday Midnight) show
+
+% ============================================
+% LAYER: Feature Bullets
+% ============================================
+% Feature circles
+0 0 0 0 k
+0.8 setlinewidth
+0 0 0 0.94 k
+
+% Bullet 1 circle
+newpath
+310 305 20 0 360 arc
+stroke
+
+% Bullet 2 circle
+newpath
+540 305 20 0 360 arc
+stroke
+
+% Bullet 3 circle
+newpath
+770 305 20 0 360 arc
+stroke
+
+% Feature labels
+0 0 0 0 k
+/Helvetica-Bold findfont
+12 scalefont
+setfont
+0 0 0 0.30 k
+
+260 270 moveto
+(FREE SHIPPING) show
+
+496 270 moveto
+(EASY RETURNS) show
+
+726 270 moveto
+(SECURE PAYMENT) show
+
+% Star icons in circles
+0.70 0.56 0 0 k
+/Helvetica findfont
+15 scalefont
+setfont
+303 311 moveto
+(*) show
+
+533 311 moveto
+(*) show
+
+763 311 moveto
+(*) show
+
+% ============================================
+% LAYER: Call To Action Button
+% ============================================
+% CTA Button - filled rounded rect
+0 1 0.63 0 k
+newpath
+410 165 moveto
+670 165 lineto
+670 215 lineto
+410 215 lineto
+closepath
+fill
+
+% Rounded ends of button
+newpath
+410 190 25 90 270 arc
+closepath
+fill
+newpath
+670 190 25 270 90 arc
+closepath
+fill
+
+% CTA Text "SHOP NOW"
+0 0 0 0 k
+/Helvetica-Bold findfont
+17 scalefont
+setfont
+447 186 moveto
+(SHOP NOW) show
+
+% Arrow circle on button
+0 0 0 0 k
+newpath
+696 190 13 0 360 arc
+0 0 0 0.82 k
+fill
+0 0 0 0 k
+/Helvetica findfont
+12 scalefont
+setfont
+690 186 moveto
+(->) show
+
+% ============================================
+% LAYER: Promo Code
+% ============================================
+0 0 0 0 k
+/Helvetica findfont
+12 scalefont
+setfont
+0 0 0 0.70 k
+470 145 moveto
+(USE CODE:) show
+
+0 1 0.63 0 k
+/Helvetica-Bold findfont
+14 scalefont
+setfont
+460 124 moveto
+(FLAT50) show
+
+% ============================================
+% LAYER: Footer
+% ============================================
+0 0 0 0.90 k
+0.5 setlinewidth
+80 90 moveto
+1000 90 lineto
+stroke
+
+0 0 0 0 k
+/Helvetica findfont
+11 scalefont
+setfont
+0 0 0 0.75 k
+460 72 moveto
+(www.lumiere.store) show
+
+%%PageTrailer
+%%Trailer
+%%EOF
