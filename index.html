@@ -38,6 +38,51 @@
     </header>
 
     <main id="home">
+      <section class="role-switcher section reveal" aria-labelledby="role-switcher-title">
+        <div class="role-switcher-copy">
+          <p class="eyebrow">Choose portfolio focus</p>
+          <h1 id="role-switcher-title">
+            Select a job role and see the
+            <span class="serif">skills that fit.</span>
+          </h1>
+          <p class="hero-text" id="role-summary">
+            Start with the role you are hiring for. The portfolio will highlight the
+            required skills, matching proof points, and best resume or project links.
+          </p>
+        </div>
+        <div class="role-selector-panel">
+          <div class="role-options" aria-label="Job role options">
+            <button class="role-option is-active" type="button" data-role="llm">LLM Post-Training</button>
+            <button class="role-option" type="button" data-role="ai">AI Engineer</button>
+            <button class="role-option" type="button" data-role="python">Python Developer</button>
+            <button class="role-option" type="button" data-role="data">Data & Cloud</button>
+            <button class="role-option" type="button" data-role="fullstack">Full Stack</button>
+            <button class="role-option" type="button" data-role="iot">IoT Data Systems</button>
+          </div>
+          <div class="role-output" aria-live="polite">
+            <div>
+              <span class="role-kicker" id="selected-role-label">Selected role</span>
+              <h3 id="selected-role-title">LLM Post-Training Intern</h3>
+              <p id="selected-role-fit">
+                Best fit for visual dataset creation, design quality checks, reviewer collaboration,
+                and AI post-training workflows.
+              </p>
+            </div>
+            <div class="role-output-grid">
+              <article>
+                <span>Skills needed</span>
+                <ul id="required-skills"></ul>
+              </article>
+              <article>
+                <span>Applied proof</span>
+                <ul id="applied-proof"></ul>
+              </article>
+            </div>
+            <div class="role-output-links" id="role-links"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="hero section reveal">
         <div class="hero-copy">
           <p class="eyebrow">Software developer / Python developer / data systems builder</p>

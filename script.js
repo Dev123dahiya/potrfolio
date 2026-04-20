@@ -53,6 +53,165 @@ const projects = [
   },
 ];
 
+const roleProfiles = {
+  llm: {
+    title: "LLM Post-Training Intern",
+    label: "Ethara AI fit",
+    summary:
+      "Best fit for visual dataset creation, design quality checks, reviewer collaboration, and AI post-training workflows.",
+    intro:
+      "This view highlights the design, dataset, and AI workflow evidence most relevant to Ethara AI's LLM Post-Training Intern role.",
+    required: [
+      "Image curation and visual dataset organization",
+      "Photoshop and Illustrator editable file handling",
+      "Typography, hierarchy, contrast, and readability review",
+      "SFT, RLHF, evaluation, and quality review awareness",
+      "Clear English communication with AI Ops reviewers",
+    ],
+    proof: [
+      "Flat 50% OFF social creative with PNG, SVG, AI, and PSD files",
+      "Visual QA readiness note for assessment review",
+      "Invoice extraction and AI evaluation project with measurable accuracy",
+      "Computer vision and deepfake research experience",
+    ],
+    links: [
+      ["Ethara fit section", "#ethara-fit"],
+      ["Open AI source", "assets/flat50-ad.ai"],
+      ["Open QA note", "assets/ethara-ai-workflow-readiness.md"],
+    ],
+  },
+  ai: {
+    title: "AI Engineer",
+    label: "Applied AI",
+    summary:
+      "Best fit for model-backed products, computer vision, NLP, evaluation, and deployed AI demos.",
+    intro:
+      "This view points recruiters toward projects where models, metrics, and usable applications come together.",
+    required: [
+      "Python, PyTorch, OpenCV, NLP, and model evaluation",
+      "Feature extraction, inference, and experiment tracking habits",
+      "API or app deployment around AI outputs",
+      "Ability to explain accuracy, edge cases, and limitations",
+      "Data preparation and validation workflows",
+    ],
+    proof: [
+      "99.33% deepfake audio detection research",
+      "Real-time emotion recognition at 28 FPS",
+      "Carbon Invoice Analyzer with structured extraction",
+      "Streamlit demos and production-facing AI workflows",
+    ],
+    links: [
+      ["See AI projects", "#work"],
+      ["Deepfake repo", "https://github.com/Dev123dahiya/Deepfake_Auido_Detection"],
+      ["Emotion demo", "https://emotion-based-song-recommendation-4tvs.onrender.com/"],
+    ],
+  },
+  python: {
+    title: "Python Developer",
+    label: "Backend and automation",
+    summary:
+      "Best fit for Python automation, APIs, data parsing, dashboards, and practical backend workflows.",
+    intro:
+      "This view emphasizes Python problem solving, automation, data handling, and deployable tools.",
+    required: [
+      "Python scripting, OOP, debugging, and clean code",
+      "REST API integration and backend workflow thinking",
+      "Pandas, data parsing, validation, and file handling",
+      "Streamlit or dashboard-style application delivery",
+      "Git, documentation, and maintainable project structure",
+    ],
+    proof: [
+      "Invoice parsing pipeline with around 90% field extraction accuracy",
+      "Python AI demos across NLP, CV, and audio ML",
+      "Automation-heavy data and monitoring project concepts",
+      "Dedicated Python resume included",
+    ],
+    links: [
+      ["Python resume", "assets/Dev-Kumar-Dahiya-Python-Resume.pdf"],
+      ["Invoice parser repo", "https://github.com/Dev123dahiya/Invoice_Parser"],
+      ["More GitHub work", "#more-projects"],
+    ],
+  },
+  data: {
+    title: "Data & Cloud Intern",
+    label: "Analytics and pipelines",
+    summary:
+      "Best fit for dashboards, ETL pipelines, Microsoft Azure, Fabric, Power BI, and reporting automation.",
+    intro:
+      "This view brings forward cloud data tools, reporting impact, and pipeline experience.",
+    required: [
+      "Power BI dashboards and business metric storytelling",
+      "Azure Data Factory, Microsoft Fabric, and cloud deployment basics",
+      "SQL-style thinking, data validation, and ETL workflows",
+      "API optimization and reporting automation",
+      "Clear handoff documents for business users",
+    ],
+    proof: [
+      "6+ Power BI dashboards during software engineering internship",
+      "Azure Data Factory and Microsoft Fabric pipeline exposure",
+      "Invoice-to-CO2e reporting workflow",
+      "Data systems and monitoring portfolio projects",
+    ],
+    links: [
+      ["General resume", "assets/Dev-Kumar-Dahiya-Resume.pdf"],
+      ["Experience section", "#process"],
+      ["Invoice project", "#work"],
+    ],
+  },
+  fullstack: {
+    title: "Full Stack Developer",
+    label: "Web applications",
+    summary:
+      "Best fit for React, Node.js, Express, MongoDB, authentication, deployment, and user-facing systems.",
+    intro:
+      "This view highlights full-stack implementation, deployment, and practical product workflows.",
+    required: [
+      "React components, responsive UI, and frontend state",
+      "Node.js, Express, REST APIs, and authentication",
+      "MongoDB data modeling and cloud database setup",
+      "Deployment on Vercel or similar platforms",
+      "Debugging, role access, and clean user flows",
+    ],
+    proof: [
+      "Leave Request Management System with employee and manager dashboards",
+      "JWT-based role access and MongoDB Atlas backend",
+      "Sub-2s deployed app experience",
+      "Portfolio site built as a static web project",
+    ],
+    links: [
+      ["Live leave app", "https://leave-request-management-system.vercel.app/"],
+      ["Leave app repo", "https://github.com/Dev123dahiya/Leave-Managment-System.git"],
+      ["Software resume", "assets/Dev-Kumar-Dahiya-Rohde-Schwarz-Resume.pdf"],
+    ],
+  },
+  iot: {
+    title: "IoT Data Systems Intern",
+    label: "Monitoring and automation",
+    summary:
+      "Best fit for sensor-style data ingestion, alerts, dashboards, and edge-to-cloud automation thinking.",
+    intro:
+      "This view focuses on monitoring systems, automated alerts, and practical data pipelines.",
+    required: [
+      "Python-based data ingestion and simulation",
+      "Real-time alerts, thresholds, and monitoring dashboards",
+      "Edge-to-cloud architecture awareness",
+      "Sensor data cleaning, storage, and visualization",
+      "Reliable documentation and operational thinking",
+    ],
+    proof: [
+      "IoT monitoring concept with Python ingestion and alert logic",
+      "Dashboard and metrics background from internship work",
+      "Cloud data pipeline exposure with Azure tools",
+      "Dedicated IoT and data systems resume included",
+    ],
+    links: [
+      ["IoT resume", "assets/Dev-Kumar-Dahiya-IoT-Resume.pdf"],
+      ["Experience section", "#process"],
+      ["More projects", "#more-projects"],
+    ],
+  },
+};
+
 const otherProjects = [
   {
     title: "Visual Dataset QA Readiness",
@@ -105,6 +264,44 @@ const otherProjects = [
     linkHref: "https://github.com/Dev123dahiya/QR-Detection-System",
   },
 ];
+
+const roleButtons = document.querySelectorAll(".role-option");
+const roleSummary = document.querySelector("#role-summary");
+const selectedRoleLabel = document.querySelector("#selected-role-label");
+const selectedRoleTitle = document.querySelector("#selected-role-title");
+const selectedRoleFit = document.querySelector("#selected-role-fit");
+const requiredSkills = document.querySelector("#required-skills");
+const appliedProof = document.querySelector("#applied-proof");
+const roleLinks = document.querySelector("#role-links");
+
+const renderRoleProfile = (roleKey) => {
+  const profile = roleProfiles[roleKey] || roleProfiles.llm;
+
+  roleButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.role === roleKey);
+  });
+
+  roleSummary.textContent = profile.intro;
+  selectedRoleLabel.textContent = profile.label;
+  selectedRoleTitle.textContent = profile.title;
+  selectedRoleFit.textContent = profile.summary;
+  requiredSkills.innerHTML = profile.required.map((skill) => `<li>${skill}</li>`).join("");
+  appliedProof.innerHTML = profile.proof.map((proof) => `<li>${proof}</li>`).join("");
+  roleLinks.innerHTML = profile.links
+    .map(([label, href]) => {
+      const opensNewTab = href.startsWith("http") || href.startsWith("assets/");
+      return `<a href="${href}" ${opensNewTab ? 'target="_blank" rel="noreferrer"' : ""}>${label}</a>`;
+    })
+    .join("");
+};
+
+roleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    renderRoleProfile(button.dataset.role);
+  });
+});
+
+renderRoleProfile("llm");
 
 const projectGrid = document.querySelector("#project-grid");
 
