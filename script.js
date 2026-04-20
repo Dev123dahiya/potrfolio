@@ -4,8 +4,8 @@ const projects = [
     image: "assets/flat50-ad-1080x1080.png",
     outcome: "PSD, AI, SVG, and final PNG included",
     summary:
-      "A Flat 50% OFF social media creative built for an AI workflow hiring assessment, with attention to typography, contrast, spacing, visual hierarchy, and editable handoff files.",
-    tags: ["Photoshop", "Illustrator", "Visual QA", "Hierarchy", "Dataset assets"],
+      "A Flat 50% OFF social media creative built for the Graphic Design Intern assessment, with attention to typography, contrast, spacing, offer hierarchy, and editable handoff files.",
+    tags: ["Illustrator", "Photoshop", "Visual QA", "Hierarchy", "Editable files"],
     linkLabel: "View final creative",
     linkHref: "assets/flat50-ad-1080x1080.png",
     repoHref: "assets/flat50-ad.ai",
@@ -14,24 +14,24 @@ const projects = [
       "linear-gradient(135deg, rgba(255, 63, 105, 0.78), rgba(12, 18, 34, 0.58)), radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.34), transparent 34%)",
   },
   {
-    title: "Carbon Invoice Analyzer",
+    title: "Structured Data Validation Pipeline",
     image: "assets/project-llm-invoice.svg",
     outcome: "~90% field extraction accuracy",
     summary:
-      "A Python document automation pipeline that analyzes invoices, extracts structured fields from PDFs, and turns them into carbon-emission insights for sustainability reporting.",
-    tags: ["Python", "NLP", "Streamlit", "Pandas", "APIs"],
+      "A Python document workflow that extracts fields, validates outputs, and turns messy inputs into structured reporting. This supports the same detail-driven thinking needed in AI data generation and validation.",
+    tags: ["Python", "Validation", "NLP", "Streamlit", "Data QA"],
     linkLabel: "GitHub repo",
     linkHref: "https://github.com/Dev123dahiya/Invoice_Parser",
     background:
       "linear-gradient(135deg, rgba(255, 142, 60, 0.9), rgba(67, 33, 12, 0.35)), radial-gradient(circle at top left, rgba(255, 235, 190, 0.55), transparent 40%)",
   },
   {
-    title: "Emotion-Based Music Recommendation",
+    title: "Computer Vision Quality Workflow",
     image: "assets/project-emotion-music.svg",
     outcome: "Real-time inference at 28 FPS",
     summary:
-      "A CNN-based real-time facial emotion recognition system that maps detected emotions to personalized music recommendations through an interactive Streamlit app.",
-    tags: ["Python", "PyTorch", "OpenCV", "CNN", "Streamlit"],
+      "A CNN-based visual inference project using OpenCV and PyTorch, showing comfort with image analysis, model behavior, and practical evaluation.",
+    tags: ["Computer Vision", "PyTorch", "OpenCV", "CNN", "Evaluation"],
     linkLabel: "Live demo",
     linkHref: "https://emotion-based-song-recommendation-4tvs.onrender.com/",
     repoHref: "https://github.com/Dev123dahiya/Emotic-Based-Music-Recomendation-.git",

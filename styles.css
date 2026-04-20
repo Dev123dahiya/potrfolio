@@ -125,7 +125,7 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.95fr 1.05fr;
   align-items: center;
   gap: 2rem;
   min-height: calc(100vh - 7rem);
@@ -147,10 +147,10 @@ p {
 }
 
 h1 {
-  font-size: clamp(3.3rem, 7vw, 6.6rem);
+  font-size: clamp(3.1rem, 6.4vw, 6.2rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
-  max-width: 11ch;
+  max-width: 12ch;
   margin-bottom: 1.4rem;
 }
 
@@ -233,7 +233,8 @@ h3 {
 .hero-proof span,
 .quote-author,
 .showcase-tile span,
-.process-card span {
+.process-card span,
+.role-match span {
   color: var(--muted);
 }
 
@@ -412,6 +413,43 @@ h3 {
   border-radius: 1.4rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
   border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.role-match {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding-top: 1rem;
+}
+
+.role-match article {
+  min-height: 15rem;
+  padding: 1.35rem;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.role-match span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--cool);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.role-match h3 {
+  line-height: 1.08;
+}
+
+.role-match p {
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .tile-large {
@@ -866,6 +904,7 @@ h3 {
 
 @media (max-width: 980px) {
   .hero,
+  .role-match,
   .section-split,
   .contact-card,
   .project-grid,
