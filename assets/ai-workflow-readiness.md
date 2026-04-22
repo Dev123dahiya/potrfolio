@@ -1,8 +1,8 @@
-# Ethara AI Workflow Readiness
+# AI Workflow Readiness
 
 ## Role Target
 
-LLM Post-Training Intern for graphic design and AI workflow support.
+Graphic design internship support for AI workflows and LLM post-training.
 
 ## Practical Strengths
 

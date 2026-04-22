@@ -708,11 +708,11 @@ h3 {
   border-radius: var(--radius);
 }
 
-.ethara-section {
+.role-fit-section {
   padding-top: 4rem;
 }
 
-.ethara-layout {
+.role-fit-layout {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
   gap: 1.25rem;
@@ -911,7 +911,7 @@ h3 {
   .other-project-grid,
   .resume-grid,
   .process-grid,
-  .ethara-layout,
+  .role-fit-layout,
   .assessment-panel,
   .fit-grid {
     grid-template-columns: 1fr;
