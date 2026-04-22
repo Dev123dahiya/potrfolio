@@ -387,6 +387,59 @@ h3 {
   padding-top: 1.25rem;
 }
 
+.visual-gallery {
+  padding-top: 1.5rem;
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: 1rem;
+}
+
+.visual-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018));
+  box-shadow: var(--shadow);
+}
+
+.visual-card-large {
+  grid-row: span 2;
+}
+
+.visual-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  object-fit: cover;
+}
+
+.visual-card-large img {
+  min-height: 38rem;
+}
+
+.visual-card figcaption {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+}
+
+.visual-card span {
+  color: var(--cool);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.visual-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 .showcase-tile,
 .role-match article,
 .project-card,
@@ -693,6 +746,7 @@ h3 {
   .hero,
   .hero-media,
   .showcase-strip,
+  .visual-grid,
   .role-match,
   .section-split,
   .contact-card,
@@ -719,6 +773,14 @@ h3 {
   .assessment-panel img {
     min-height: auto;
     aspect-ratio: 1 / 1;
+  }
+
+  .visual-card-large {
+    grid-row: span 1;
+  }
+
+  .visual-card-large img {
+    min-height: 20rem;
   }
 
   .section-heading {
