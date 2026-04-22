@@ -14,6 +14,18 @@ const projects = [
       "linear-gradient(135deg, rgba(255, 63, 105, 0.78), rgba(12, 18, 34, 0.58)), radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.34), transparent 34%)",
   },
   {
+    title: "LLM Prompt & Response Evaluator API",
+    image: "assets/project-llm-evaluator.svg",
+    outcome: "JWT auth, scoring engine, and analytics API",
+    summary:
+      "A production-ready Django REST API where authenticated users submit prompts, attach model outputs, trigger automated evaluation, and track score trends over time.",
+    tags: ["Django REST", "PostgreSQL", "JWT", "NumPy", "Pandas"],
+    linkLabel: "GitHub repo",
+    linkHref: "https://github.com/Dev123dahiya/prompt-response-evaluator",
+    background:
+      "linear-gradient(135deg, rgba(123, 224, 214, 0.86), rgba(10, 35, 45, 0.54)), radial-gradient(circle at 24% 18%, rgba(236, 255, 252, 0.34), transparent 30%)",
+  },
+  {
     title: "Structured Data Validation Pipeline",
     image: "assets/project-llm-invoice.svg",
     outcome: "~90% field extraction accuracy",
@@ -62,6 +74,13 @@ const otherProjects = [
     linkLabel: "View editable SVG",
   },
   {
+    title: "Smart Hospital Management System",
+    summary: "A MERN hospital workflow platform with role-based login, appointments, prescriptions, reports, emergency alerts, analytics dashboards, and billing records.",
+    language: "MERN / Realtime",
+    linkHref: "https://github.com/Dev123dahiya/Smart-Hospital-Management-System",
+    linkLabel: "View GitHub repo",
+  },
+  {
     title: "IoT Data Monitoring & Automation",
     summary: "Conceptual edge-to-cloud monitoring system with simulated sensor ingestion, Python alerts, dashboard metrics, and real-time automation logic.",
     language: "Python / IoT",
@@ -73,12 +92,6 @@ const otherProjects = [
     summary: "CNN, BiLSTM, attention, MFCC, and mel-spectrogram based audio deepfake detection research.",
     language: "Python / Jupyter",
     linkHref: "https://github.com/Dev123dahiya/Deepfake_Auido_Detection",
-  },
-  {
-    title: "Smart Hospital Management System",
-    summary: "JavaScript-based hospital management project for handling healthcare workflows.",
-    language: "JavaScript",
-    linkHref: "https://github.com/Dev123dahiya/Smart-Hospital-Management-System",
   },
   {
     title: "OrbitX",
