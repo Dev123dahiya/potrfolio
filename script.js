@@ -1,10 +1,10 @@
 const projects = [
   {
-    title: "AI Workflow Design Assessment",
+    title: "Social Media Creative Design",
     image: "assets/flat50-ad-1080x1080.png",
     outcome: "PSD, AI, SVG, and final PNG included",
     summary:
-      "A Flat 50% OFF social media creative built for the Graphic Design Intern assessment, with attention to typography, contrast, spacing, offer hierarchy, and editable handoff files.",
+      "A Flat 50% OFF social media creative designed with attention to typography, contrast, spacing, offer hierarchy, and editable handoff files.",
     tags: ["Illustrator", "Photoshop", "Visual QA", "Hierarchy", "Editable files"],
     linkLabel: "View final creative",
     linkHref: "assets/flat50-ad-1080x1080.png",
@@ -26,11 +26,11 @@ const projects = [
       "linear-gradient(135deg, rgba(123, 224, 214, 0.86), rgba(10, 35, 45, 0.54)), radial-gradient(circle at 24% 18%, rgba(236, 255, 252, 0.34), transparent 30%)",
   },
   {
-    title: "Structured Data Validation Pipeline",
+    title: "Invoice Data Extraction Pipeline",
     image: "assets/project-llm-invoice.svg",
     outcome: "~90% field extraction accuracy",
     summary:
-      "A Python document workflow that extracts fields, validates outputs, and turns messy inputs into structured reporting. This supports the same detail-driven thinking needed in AI data generation and validation.",
+      "A Python document workflow that extracts fields, validates outputs, and turns messy invoice data into structured reporting.",
     tags: ["Python", "Validation", "NLP", "Streamlit", "Data QA"],
     linkLabel: "GitHub repo",
     linkHref: "https://github.com/Dev123dahiya/Invoice_Parser",
@@ -38,11 +38,11 @@ const projects = [
       "linear-gradient(135deg, rgba(255, 142, 60, 0.9), rgba(67, 33, 12, 0.35)), radial-gradient(circle at top left, rgba(255, 235, 190, 0.55), transparent 40%)",
   },
   {
-    title: "Computer Vision Quality Workflow",
+    title: "Emotion-Based Music Recommendation",
     image: "assets/project-emotion-music.svg",
     outcome: "Real-time inference at 28 FPS",
     summary:
-      "A CNN-based visual inference project using OpenCV and PyTorch, showing comfort with image analysis, model behavior, and practical evaluation.",
+      "A CNN-based visual inference project using OpenCV and PyTorch that maps facial emotion detection to personalized music recommendations.",
     tags: ["Computer Vision", "PyTorch", "OpenCV", "CNN", "Evaluation"],
     linkLabel: "Live demo",
     linkHref: "https://emotion-based-song-recommendation-4tvs.onrender.com/",
@@ -67,9 +67,9 @@ const projects = [
 
 const otherProjects = [
   {
-    title: "Visual Dataset QA Readiness",
-    summary: "Portfolio evidence for image curation, design readability checks, editable file handoff, and visual hierarchy review for AI training datasets.",
-    language: "Design / AI Ops",
+    title: "Editable Design Asset Pack",
+    summary: "Design work presented with editable file handoff, clean exports, and attention to readability, hierarchy, and visual presentation.",
+    language: "Design / Creative",
     linkHref: "assets/flat50-ad-editable.svg",
     linkLabel: "View editable SVG",
   },
