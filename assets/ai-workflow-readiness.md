@@ -1,16 +1,16 @@
-# AI Workflow Readiness
+# Design Work Assessment
 
-## Role Target
+## Overview
 
-Graphic design internship support for AI workflows and LLM post-training.
+This document accompanies the design work included in this portfolio, showcasing creative execution, visual quality, and deliverable preparation.
 
 ## Practical Strengths
 
-- Curating and organizing image assets for dataset use.
+- Curating and organizing image assets for various use cases.
 - Reviewing visuals for typography, hierarchy, contrast, spacing, readability, and brand polish.
 - Preparing editable deliverables with clear source files and final exports.
 - Working with structured validation steps, documentation, and reviewer feedback.
-- Connecting design quality checks with AI training workflows such as SFT, RLHF, and evaluation.
+- Connecting design quality checks with technical workflows.
 
 ## Assessment Assets Included
 
@@ -27,4 +27,4 @@ Graphic design internship support for AI workflows and LLM post-training.
 - Layout has intentional alignment and consistent margins.
 - Brand elements feel consistent across typography, color, and composition.
 - Source files remain editable for reviewer inspection.
-- Final export is ready for portfolio, form submission, or dataset review.
+- Final export is ready for portfolio or presentation.
