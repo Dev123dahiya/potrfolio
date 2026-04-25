@@ -5,6 +5,685 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
+    content="Dev Kumar Dahiya - Python Backend Developer & AI Workflow Engineer. B.Tech CS fresher specializing in Django, REST APIs, PostgreSQL, and LLM Post-Training."
+  >
+  <title>Dev Kumar Dahiya | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --bg-primary: #0A0F1E;
+      --bg-secondary: #111827;
+      --accent: #3B82F6;
+      --accent-glow: rgba(59, 130, 246, 0.5);
+      --text-primary: #F9FAFB;
+      --text-secondary: #9CA3AF;
+      --card-bg: #1F2937;
+      --border-color: #374151;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero h1 .accent {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 1.125rem;
+    }
+
+    .research-card {
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      box-shadow: 0 0 30px var(--accent-glow);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+      to {
+        box-shadow: 0 0 40px var(--accent-glow);
+      }
+    }
+
+    .research-card .label {
+      background: var(--accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .research-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .research-card p {
+      color: var(--text-secondary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card .label {
+      background: rgba(59, 130, 246, 0.2);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card .description {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .project-card .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-card .tech span {
+      background: var(--bg-secondary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .project-card .btn {
+      display: inline-block;
+    }
+
+    .skills-section {
+      background: var(--bg-secondary);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-group {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .skill-group h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .skill-group ul {
+      list-style: none;
+    }
+
+    .skill-group li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .skill-group li:last-child {
+      border-bottom: none;
+    }
+
+    .about-section {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .resume-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .resume-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .resume-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section {
+      background: var(--bg-secondary);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .contact-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#home" class="nav-brand">Dev<span>Kumar</span></a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content reveal">
+      <h1>Python Backend Developer <span class="accent">&</span> AI Workflow Engineer</h1>
+      <p class="hero-subtitle">B.Tech CS Fresher | Django · REST APIs · PostgreSQL · LLM Post-Training | Gurgaon</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="assets/Dev-Kumar-Dahiya-Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-secondary">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <div class="reveal">
+      <h2 class="section-title">Published Research</h2>
+      <p class="section-subtitle">Academic contributions in applied AI</p>
+      <div class="research-card">
+        <span class="label">ICICC 2026</span>
+        <h3>Deepfake Audio Detection</h3>
+        <p>Developed a CNN + BiLSTM + Attention-based deepfake audio detection model using MFCC and mel-spectrogram features achieving 99.3% accuracy. Published at ICICC 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="reveal">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Featured work in backend development and AI engineering</p>
+      <div class="projects-grid">
+        <article class="project-card">
+          <span class="label">Featured Project</span>
+          <h3>LLM Prompt & Response Evaluator API</h3>
+          <p class="description">A REST API system for submitting AI prompts, evaluating responses with a custom scoring engine, and viewing analytics. Built to mirror real-world LLM post-training evaluation workflows used at AI startups.</p>
+          <div class="tech">
+            <span>Python</span>
+            <span>Django</span>
+            <span>PostgreSQL</span>
+            <span>REST API</span>
+            <span>NumPy</span>
+            <span>Pandas</span>
+            <span>JWT Auth</span>
+          </div>
+          <a href="https://github.com/dev123dahiya" target="_blank" rel="noreferrer" class="btn btn-primary">View on GitHub</a>
+        </article>
+        <article class="project-card">
+          <span class="label">Internship Project</span>
+          <h3>Invoice Analysis Pipeline</h3>
+          <p class="description">AI pipeline that extracted invoice fields with ~90% accuracy, saved analysts ~3 hours per report, and mapped outputs to CO2e business metrics.</p>
+          <div class="tech">
+            <span>Python</span>
+            <span>AI</span>
+            <span>OCR</span>
+            <span>Data Pipeline</span>
+          </div>
+          <a href="https://github.com/dev123dahiya" target="_blank" rel="noreferrer" class="btn btn-primary">View on GitHub</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section skills-section">
+    <div class="reveal">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technical expertise across backend, AI, cloud, and web technologies</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul>
+            <li>Python</li>
+            <li>Django</li>
+            <li>FastAPI</li>
+            <li>Flask</li>
+            <li>REST APIs</li>
+            <li>PostgreSQL</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>AI / ML</h3>
+          <ul>
+            <li>NumPy</li>
+            <li>Pandas</li>
+            <li>PyTorch</li>
+            <li>CNN</li>
+            <li>BiLSTM</li>
+            <li>LLM Post-Training</li>
+            <li>SFT</li>
+            <li>RLHF</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud & Tools</h3>
+          <ul>
+            <li>Azure</li>
+            <li>Azure Data Factory</li>
+            <li>Power BI</li>
+            <li>Databricks</li>
+            <li>Snowflake</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Web</h3>
+          <ul>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Streamlit</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="section">
+    <div class="reveal">
+      <h2 class="section-title">Resume</h2>
+      <p class="section-subtitle">Download my resume</p>
+      <div class="resume-grid">
+        <article class="resume-card">
+          <h3>General Resume</h3>
+          <p>Best all-around version for Python backend and AI engineering roles.</p>
+          <a href="assets/Dev-Kumar-Dahiya-Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">Download PDF</a>
+        </article>
+        <article class="resume-card">
+          <h3>Python Developer Resume</h3>
+          <p>Frames Python, Django, REST APIs, AI applications, and backend development experience.</p>
+          <a href="assets/Dev-Kumar-Dahiya-Python-Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">Download PDF</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="reveal">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>I'm Dev Kumar Dahiya, a B.Tech Computer Science fresher from Gurgaon with a passion for building backend systems and AI-powered applications. I specialize in Python, Django, REST APIs, and PostgreSQL, with hands-on experience in LLM post-training workflows, data pipelines, and cloud deployments on Azure. My published research on deepfake audio detection (ICICC 2026) reflects my commitment to applied AI. I'm actively looking for full-time Python Backend or AI Engineer roles in Gurgaon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div class="reveal">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <p>Based in Gurgaon, Haryana. Open to full-time opportunities in Python Backend Development or AI Engineering.</p>
+        <div class="contact-links">
+          <a href="mailto:devdahiya4002@gmail.com">Email</a>
+          <a href="tel:+917404512322">Call</a>
+          <a href="https://www.linkedin.com/in/devkumardahiya/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/dev123dahiya" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Dev Kumar Dahiya. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+          // Close mobile menu if open
+          document.querySelector('.nav-links').classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
     content="Dev Kumar Dahiya - portfolio showcasing design work, AI applications, Python projects, data systems, and full-stack development."
   >
   <title>Dev Kumar Dahiya | Portfolio</title>
