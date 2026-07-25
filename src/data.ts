@@ -40,12 +40,12 @@ export const profile = {
 };
 
 export const about =
-  "Computer Science graduate (CGPA 8.5) and published researcher. Currently a full-stack software developer at ethara.ai, working across React and Node backends, alongside C#/ASP.NET services, Azure data platforms, and deep-learning pipelines in PyTorch. First-author of an ICICC 2026 paper reporting 99.33% accuracy in deepfake-audio detection.";
+  "Computer Science graduate (CGPA 8.56) and published researcher. Currently a full-stack software developer at ethara.ai, working across React and Node backends, alongside C#/ASP.NET services, Azure data platforms, and deep-learning pipelines in PyTorch. First-author of an ICICC 2026 paper reporting 99.33% accuracy in deepfake-audio detection.";
 
 export const stats = [
   { label: "Publication", value: "ICICC", suffix: " 2026" },
   { label: "Best model accuracy", value: "99.33", suffix: "%" },
-  { label: "CGPA", value: "8.5", suffix: "" },
+  { label: "CGPA", value: "8.56", suffix: "" },
   { label: "Internships", value: "2", suffix: "" },
 ];
 
@@ -201,6 +201,6 @@ export const education = {
   domain: "amity.edu",
   location: "Noida, Uttar Pradesh",
   degree: "B.Tech, Computer Science",
-  detail: "CGPA 8.5",
+  detail: "CGPA 8.56",
   period: "Aug 2022 - May 2026",
 };
