@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B0F1A"/><stop offset="1" stop-color="#08222b"/></linearGradient>
+  <linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity="0.5"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+  <!-- KPI tiles -->
+  <g>
+    <rect x="70" y="60" width="200" height="80" rx="10" fill="#111726" stroke="#1E2637"/>
+    <rect x="90" y="80" width="70" height="10" rx="4" fill="#93A0B5"/>
+    <rect x="90" y="100" width="110" height="22" rx="4" fill="#22D3EE"/>
+    <rect x="300" y="60" width="200" height="80" rx="10" fill="#111726" stroke="#1E2637"/>
+    <rect x="320" y="80" width="70" height="10" rx="4" fill="#93A0B5"/>
+    <rect x="320" y="100" width="90" height="22" rx="4" fill="#5B8DEF"/>
+    <rect x="530" y="60" width="200" height="80" rx="10" fill="#111726" stroke="#1E2637"/>
+    <rect x="550" y="80" width="70" height="10" rx="4" fill="#93A0B5"/>
+    <rect x="550" y="100" width="100" height="22" rx="4" fill="#34D399"/>
+  </g>
+  <!-- chart panel -->
+  <rect x="70" y="165" width="660" height="175" rx="12" fill="#111726" stroke="#1E2637"/>
+  <polyline points="90,300 170,270 250,285 330,230 410,250 490,190 570,215 650,160 710,180" fill="none" stroke="#22D3EE" stroke-width="3"/>
+  <polygon points="90,300 170,270 250,285 330,230 410,250 490,190 570,215 650,160 710,180 710,325 90,325" fill="url(#a)"/>
+  <circle cx="490" cy="190" r="5" fill="#22D3EE"/>
+  <circle cx="650" cy="160" r="5" fill="#22D3EE"/>
+  <text x="90" y="365" font-family="monospace" font-size="15" fill="#22D3EE">MERN · Socket.IO · Real-time metrics</text>
+</svg>

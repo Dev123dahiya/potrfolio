@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B0F1A"/><stop offset="1" stop-color="#241033"/></linearGradient>
+  <linearGradient id="w" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#EC4899"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+  <circle cx="160" cy="320" r="150" fill="#EC4899" opacity="0.10"/>
+  <!-- waveform -->
+  <g transform="translate(90,200)">
+    <!-- bars -->
+    <g fill="url(#w)">
+      <rect x="0" y="-20" width="10" height="40" rx="5"/>
+      <rect x="22" y="-55" width="10" height="110" rx="5"/>
+      <rect x="44" y="-90" width="10" height="180" rx="5"/>
+      <rect x="66" y="-40" width="10" height="80" rx="5"/>
+      <rect x="88" y="-110" width="10" height="220" rx="5"/>
+      <rect x="110" y="-70" width="10" height="140" rx="5"/>
+      <rect x="132" y="-130" width="10" height="260" rx="5"/>
+      <rect x="154" y="-60" width="10" height="120" rx="5"/>
+      <rect x="176" y="-95" width="10" height="190" rx="5"/>
+      <rect x="198" y="-30" width="10" height="60" rx="5"/>
+      <rect x="220" y="-115" width="10" height="230" rx="5"/>
+      <rect x="242" y="-50" width="10" height="100" rx="5"/>
+      <rect x="264" y="-85" width="10" height="170" rx="5"/>
+      <rect x="286" y="-35" width="10" height="70" rx="5"/>
+      <rect x="308" y="-100" width="10" height="200" rx="5"/>
+      <rect x="330" y="-45" width="10" height="90" rx="5"/>
+      <rect x="352" y="-25" width="10" height="50" rx="5"/>
+    </g>
+  </g>
+  <!-- shield check -->
+  <g transform="translate(600,130)">
+    <path d="M60 0 L118 22 V70 C118 118 90 150 60 168 C30 150 2 118 2 70 V22 Z" fill="#0B0F1A" stroke="#7C5CFC" stroke-width="3"/>
+    <path d="M34 82 l18 18 l34 -40" fill="none" stroke="#EC4899" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="90" y="360" font-family="monospace" font-size="15" fill="#EC4899">PyTorch · CNN + Attention · Deepfake audio</text>
+</svg>

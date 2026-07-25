@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #0B0F1A; }
+body { @apply bg-base text-ink font-sans antialiased; }
+
+/* subtle grid + glow background */
+.bg-grid {
+  background-image:
+    radial-gradient(60% 50% at 50% 0%, rgba(91,141,239,0.14), transparent 70%),
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 44px 44px, 44px 44px;
+}
+.card { @apply rounded-2xl border border-line bg-panel/70 backdrop-blur; }
+.chip { @apply inline-flex items-center rounded-full border border-line bg-white/5 px-3 py-1 text-xs font-medium text-muted; }
+.section-title { @apply font-display text-2xl md:text-3xl font-bold text-ink; }
+.link-underline { @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent hover:after:w-full after:transition-all; }
+
+/* aurora blob drift */
+@keyframes drift1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,40px) scale(1.15); } }
+@keyframes drift2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,30px) scale(1.1); } }
+@keyframes drift3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-40px) scale(1.2); } }
+.blob { animation: drift1 18s ease-in-out infinite; }
+.blob2 { animation: drift2 22s ease-in-out infinite; }
+.blob3 { animation: drift3 26s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .blob, .blob2, .blob3 { animation: none; } }
+
+@keyframes drift4 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,-30px) scale(1.15); } }
+.blob4 { animation: drift4 24s ease-in-out infinite; }
+@keyframes sheenmove { 0% { transform: rotate(0deg) scale(1.4); } 100% { transform: rotate(360deg) scale(1.4); } }
+.sheen {
+  background: conic-gradient(from 0deg at 50% 40%, rgba(91,141,239,0.22), rgba(124,92,252,0.22), rgba(34,211,238,0.16), rgba(236,72,153,0.14), rgba(91,141,239,0.22));
+  animation: sheenmove 34s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .blob4, .sheen { animation: none; } }

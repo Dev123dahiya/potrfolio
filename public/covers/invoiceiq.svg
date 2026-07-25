@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B0F1A"/><stop offset="1" stop-color="#12203a"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+  <circle cx="640" cy="90" r="150" fill="#5B8DEF" opacity="0.12"/>
+  <!-- invoice document -->
+  <rect x="120" y="70" width="300" height="260" rx="12" fill="#F3F6FA"/>
+  <rect x="150" y="100" width="120" height="16" rx="4" fill="#143A5A"/>
+  <rect x="150" y="135" width="240" height="10" rx="4" fill="#C7D2E0"/>
+  <rect x="150" y="158" width="240" height="10" rx="4" fill="#C7D2E0"/>
+  <rect x="150" y="181" width="180" height="10" rx="4" fill="#C7D2E0"/>
+  <line x1="150" y1="212" x2="390" y2="212" stroke="#E1E7F0" stroke-width="2"/>
+  <rect x="150" y="228" width="150" height="10" rx="4" fill="#93A0B5"/>
+  <rect x="320" y="228" width="70" height="10" rx="4" fill="#2E9E6B"/>
+  <rect x="150" y="251" width="150" height="10" rx="4" fill="#93A0B5"/>
+  <rect x="320" y="251" width="70" height="10" rx="4" fill="#2E9E6B"/>
+  <rect x="150" y="286" width="110" height="20" rx="6" fill="#143A5A"/>
+  <!-- carbon badge -->
+  <circle cx="470" cy="160" r="52" fill="#0B0F1A" stroke="#34D399" stroke-width="3"/>
+  <path d="M470 132 c-22 10 -22 40 0 56 c22 -16 22 -46 0 -56 z" fill="#34D399" opacity="0.9"/>
+  <text x="470" y="205" font-family="monospace" font-size="16" fill="#34D399" text-anchor="middle">CO2e</text>
+  <!-- mini bar chart -->
+  <g transform="translate(520,235)">
+    <rect x="0" y="40" width="22" height="45" rx="3" fill="#5B8DEF"/>
+    <rect x="34" y="18" width="22" height="67" rx="3" fill="#7C5CFC"/>
+    <rect x="68" y="52" width="22" height="33" rx="3" fill="#5B8DEF"/>
+    <rect x="102" y="6" width="22" height="79" rx="3" fill="#7C5CFC"/>
+  </g>
+  <text x="120" y="360" font-family="monospace" font-size="15" fill="#5B8DEF">FastAPI · GROQ · Carbon estimation</text>
+</svg>
