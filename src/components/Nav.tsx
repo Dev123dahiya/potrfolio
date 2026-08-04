@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { profile } from '../data';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   ['About', 'about'],
@@ -32,6 +33,7 @@ export default function Nav() {
           {links.map(([label, id]) => (
             <a key={id} href={`#${id}`} className="link-underline text-sm text-muted hover:text-ink">{label}</a>
           ))}
+          <ThemeToggle />
           <a href={profile.resumeUrl} download
              className="rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-base hover:brightness-110">
             Résumé

@@ -12,19 +12,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
           className="max-w-xl text-center md:text-left"
         >
+
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-white/5 px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-emerald-400" /> Open to opportunities
           </div>
           <h1 className="font-display text-4xl font-bold leading-tight md:text-6xl">
-            {profile.name}
+            Software Engineer
           </h1>
-          <p className="mt-3 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-lg font-semibold text-transparent md:text-xl">
-            {profile.title}
+          <p className="mt-3 text-lg font-semibold text-ink md:text-xl">
+            Building AI-powered applications, scalable backend systems and production-ready web experiences.
           </p>
-          <p className="mt-4 text-muted">{profile.tagline}</p>
+          <p className="mt-3 text-sm text-accent">Current: {profile.title}</p>
 
-          <div className="mt-5 flex items-center justify-center gap-2 text-sm text-muted md:justify-start">
-            <MapPin size={15} /> {profile.location}
+          <div className="mt-4 text-sm text-muted">
+            <MapPin size={15} className="inline-block mr-2 align-text-bottom" /> {profile.location}
           </div>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">

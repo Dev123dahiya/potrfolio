@@ -23,7 +23,9 @@ export function Skills() {
             <div className="card p-5">
               <h3 className="mb-3 font-mono text-xs uppercase tracking-widest text-accent">{s.group}</h3>
               <div className="flex flex-wrap gap-2">
-                {s.items.map((t) => <span key={t} className="chip text-ink/80">{t}</span>)}
+                {s.items.map((t) => (
+                  <span key={t} className="inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-1 text-xs font-medium text-ink">{t}</span>
+                ))}
               </div>
             </div>
           </Reveal>
@@ -55,7 +57,11 @@ export function Research() {
 
       <Reveal delay={0.08}>
         <div className="card mt-6 flex items-center gap-4 p-6">
-<Logo domain={education.domain} name={education.school} className="h-12 w-12 shrink-0 text-sm" />
+          {education.image ? (
+            <img src={education.image} alt={education.school} className="h-12 w-12 shrink-0 rounded-xl object-cover" />
+          ) : (
+            <Logo domain={education.domain} name={education.school} className="h-12 w-12 shrink-0 text-sm" />
+          )}
           <div className="flex flex-wrap items-baseline justify-between gap-2 grow">
             <div>
               <h3 className="font-display font-semibold text-ink">{education.school}</h3>

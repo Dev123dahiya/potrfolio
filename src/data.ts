@@ -40,13 +40,13 @@ export const profile = {
 };
 
 export const about =
-  "Computer Science graduate (CGPA 8.56) and published researcher. Currently a full-stack software developer at ethara.ai, working across React and Node backends, alongside C#/ASP.NET services, Azure data platforms, and deep-learning pipelines in PyTorch. First-author of an ICICC 2026 paper reporting 99.33% accuracy in deepfake-audio detection.";
+  "Software engineer focused on building production-quality web and AI systems: scalable backends, cloud-native deployments, and performant frontends. Experienced in React, Node.js, C#, and data/ML pipelines. I deliver reliable systems, ship features end-to-end, and mentor cross-functional teams to production.";
 
-export const stats = [
-  { label: "Publication", value: "ICICC", suffix: " 2026" },
-  { label: "Best model accuracy", value: "99.33", suffix: "%" },
-  { label: "CGPA", value: "8.56", suffix: "" },
-  { label: "Internships", value: "2", suffix: "" },
+export let stats = [
+  { label: "Projects", value: "0", suffix: "+" },
+  { label: "Experience (internships)", value: "2", suffix: "+" },
+  { label: "GitHub contributions", value: "500", suffix: "+" },
+  { label: "Publications", value: "1", suffix: "" },
 ];
 
 export const experience = [
@@ -57,6 +57,8 @@ export const experience = [
     url: "https://www.ethara.ai/",
     location: "Gurugram, India",
     period: "May 2026 - Present",
+    // Local or hosted image for the company (place file at public/ethara.jpg)
+    image: "/ethara.jpg",
     points: [
       "Build and ship full-stack features across a React/TypeScript frontend and a Node.js backend, owning work from API design through UI delivery.",
       "Develop and integrate REST APIs and database models, and collaborate through code reviews and deployments in an AI product environment.",
@@ -70,6 +72,8 @@ export const experience = [
     url: "https://maqsoftware.com/",
     location: "Noida, India",
     period: "Nov 2025 - Feb 2026",
+    // Local or hosted image for MAQ (place file at public/maq.jpg)
+    image: "/maq.jpg",
     points: [
       "Built and optimized backend services in C# and ASP.NET, improving reliability and scalability of business-facing applications.",
       "Designed interactive Power BI dashboards turning raw operational data into decision-ready business-intelligence views.",
@@ -177,6 +181,9 @@ export const featured: Project[] = [
   },
 ];
 
+// Ensure stats projects count reflects featured array length (avoid forward reference)
+stats[0].value = String(featured.length);
+
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "SQL"] },
   { group: "Frameworks", items: ["React", "Node.js", "Express", "ASP.NET", "FastAPI", "Flask"] },
@@ -201,6 +208,9 @@ export const education = {
   domain: "amity.edu",
   location: "Noida, Uttar Pradesh",
   degree: "B.Tech, Computer Science",
-  detail: "CGPA 8.56",
+  detail: "CGPA 8.60",
   period: "Aug 2022 - May 2026",
+  // Optional: path to a local or hosted image for the school (place file in public/)
+  // Example: "/education.jpg"
+  image: "/education.jpg",
 };

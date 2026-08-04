@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Github, ExternalLink, Star, GitFork, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { Section, Reveal } from './ui';
+import Modal from './Modal';
 import { Cover, Tilt } from './bits';
 import { featured, GITHUB_USERNAME, profile, repoImage } from '../data';
 
@@ -18,6 +19,7 @@ export default function Projects() {
   const [repos, setRepos] = useState<Repo[] | null>(null);
   const [error, setError] = useState(false);
   const [showAll, setShowAll] = useState(false);
+  const [selected, setSelected] = useState<number | null>(null);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`)
@@ -39,7 +41,8 @@ export default function Projects() {
         {featured.map((p, i) => (
           <Reveal key={p.name} delay={(i % 2) * 0.06}>
             <Tilt>
-              <article className="card group flex h-full flex-col overflow-hidden p-4 transition hover:border-accent/60 hover:shadow-glow">
+              <article onClick={() => setSelected(i)} role="button" tabIndex={0}
+                className="card group cursor-pointer flex h-full flex-col overflow-hidden p-4 transition hover:border-accent/60 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-accent/30">
                 <Cover name={p.name} image={p.image} fallback={p.cover} preview={p.repo ? repoImage(p.repo) : undefined} />
                 <div className="mt-4 flex items-start justify-between gap-3">
                   <h3 className="font-display text-lg font-semibold text-ink">{p.name}</h3>
@@ -51,12 +54,12 @@ export default function Projects() {
                 </div>
                 <div className="mt-4 flex items-center gap-4 text-sm">
                   {p.github && (
-                    <a href={p.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
+                    <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
                       <Github size={16} /> Code
                     </a>
                   )}
                   {p.live && (
-                    <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
+                    <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
                       <ExternalLink size={16} /> Live
                     </a>
                   )}
@@ -66,6 +69,23 @@ export default function Projects() {
           </Reveal>
         ))}
       </div>
+
+      <Modal open={selected !== null} onClose={() => setSelected(null)} title={selected !== null ? featured[selected].name : undefined}>
+        {selected !== null && (
+          <div>
+            <img src={featured[selected].image} alt={featured[selected].name} className="mb-4 w-full rounded-lg object-cover" />
+            <h4 className="mb-2 font-semibold">Problem</h4>
+            <p className="mb-3 text-sm text-muted">{featured[selected].blurb}</p>
+            <h4 className="mb-2 font-semibold">Tech Stack</h4>
+            <div className="mb-3 flex flex-wrap gap-2">{featured[selected].tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
+            <h4 className="mb-2 font-semibold">Highlights</h4>
+            <ul className="mb-3 list-disc pl-5 text-sm text-muted">
+              <li>Architecture and deployment details available on the repo.</li>
+              <li>Performance-focused implementation with production-ready patterns.</li>
+            </ul>
+          </div>
+        )}
+      </Modal>
 
       {/* everything else, pulled live from GitHub with real preview images */}
       <div id="github" className="mt-16">
