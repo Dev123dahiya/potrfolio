@@ -12,12 +12,6 @@ export const profile = {
   headline: 'I build the backend systems and LLM pipelines behind real products.',
   intro:
     'Right now that means REST APIs that bring LLM features into live products at Ethara AI. Before that I built data pipelines on Microsoft Fabric at MAQ Software, a Generative AI invoice reader at Horizon17, and co-authored a Springer paper on spotting AI-generated voices.',
-  // The photo loads from Google Drive. To host it yourself, put the file at
-  // public/profile.jpg and add '/profile.jpg' as the first entry.
-  photoCandidates: [
-    'https://lh3.googleusercontent.com/d/1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz=w600',
-    'https://drive.google.com/thumbnail?id=1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz&sz=w600',
-  ],
   email: 'devdahiya4002@gmail.com',
   resumeUrl: '/Dev_Kumar_Dahiya_Resume.pdf',
   github: `https://github.com/${GITHUB_USERNAME}`,
@@ -447,6 +441,16 @@ export const publication = {
   publisherLogo: '/logos/springer-white.png',
 };
 
+// Skills whose name differs from the word used in project tech lists.
+// Clicking a skill searches the project gallery for this term.
+export const skillSearch: Record<string, string> = {
+  'LLM APIs (Claude, OpenAI, Groq, Gemini)': 'LLM',
+  'RAG and agents': 'retrieval',
+  'Prompt engineering': 'prompt',
+  'Node.js and Express': 'Express',
+  'JWT auth': 'JWT',
+};
+
 export const skills: { group: string; items: string[] }[] = [
   { group: 'Languages', items: ['Python', 'SQL', 'C#', 'TypeScript', 'JavaScript', 'C++'] },
   { group: 'AI & LLMs', items: ['LLM APIs (Claude, OpenAI, Groq, Gemini)', 'RAG and agents', 'Prompt engineering', 'PyTorch', 'TensorFlow', 'OpenCV', 'OCR'] },
@@ -472,9 +476,9 @@ export const education = {
 
 // Logo strip under the hero: where I've worked, studied and published.
 export const affiliations = [
-  { name: 'Ethara AI', logo: '/logos/ethara-ink.png', height: 26 },
-  { name: 'MAQ Software', logo: '/logos/maq.png', height: 24 },
-  { name: 'Horizon17', logo: '/logos/horizon17.png', height: 40 },
-  { name: 'Amity University', logo: '/logos/amity.png', height: 40 },
-  { name: 'Springer Nature', logo: '/logos/springer.png', height: 17 },
+  { name: 'Ethara AI', logo: '/logos/ethara-ink.png', height: 26, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'MAQ Software', logo: '/logos/maq.png', height: 24, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'Horizon17', logo: '/logos/horizon17.png', height: 40, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'Amity University', logo: '/logos/amity.png', height: 40, section: 'education', sectionLabel: 'Education' },
+  { name: 'Springer Nature', logo: '/logos/springer.png', height: 17, section: 'research', sectionLabel: 'Research' },
 ];

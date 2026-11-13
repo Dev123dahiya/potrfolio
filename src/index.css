@@ -4,6 +4,32 @@
 
 :root {
   color-scheme: light;
+  --paper: 243 245 248;
+  --surface: 255 255 255;
+  --ink: 14 26 43;
+  --on-ink: 255 255 255;
+  --muted: 83 100 123;
+  --line: 217 224 232;
+  --signal: 11 127 114;
+  --signal-soft: 221 241 238;
+  --cobalt: 43 85 214;
+  --amber: 154 91 0;
+  --violet: 106 69 184;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: 10 17 30;
+  --surface: 17 27 45;
+  --ink: 232 238 247;
+  --on-ink: 10 17 30;
+  --muted: 157 172 194;
+  --line: 36 50 74;
+  --signal: 94 201 182;
+  --signal-soft: 18 51 48;
+  --cobalt: 134 168 255;
+  --amber: 236 181 99;
+  --violet: 184 160 255;
 }
 
 html {
@@ -18,8 +44,7 @@ body {
 }
 
 ::selection {
-  background: #bfe6df;
-  color: #0e1a2b;
+  background: rgb(var(--signal) / 0.28);
 }
 
 a,
@@ -28,7 +53,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid #2b55d6;
+  outline: 2px solid rgb(var(--cobalt));
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -51,7 +76,7 @@ button {
   @apply inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-[0.95rem] font-semibold transition-colors;
 }
 .btn-primary {
-  @apply btn bg-ink text-white hover:bg-[#1c2d47];
+  @apply btn bg-ink text-onInk hover:bg-ink/85;
 }
 .btn-quiet {
   @apply btn border border-line bg-surface text-ink hover:border-ink/40;
@@ -60,6 +85,54 @@ button {
 .tag {
   @apply inline-flex items-center rounded-md border border-line bg-paper px-2 py-0.5 text-[0.8rem] text-muted;
 }
+button.tag {
+  @apply cursor-pointer transition-colors hover:border-signal hover:text-signal;
+}
+
+.lead {
+  @apply mt-4 max-w-[40rem] text-[1.05rem] leading-relaxed text-muted;
+}
+
+.kbd {
+  @apply rounded border border-line bg-paper px-1.5 py-0.5 font-mono text-[0.72rem] text-muted;
+}
+
+/* Logos are drawn for light backgrounds, so they always sit on a white tile. */
+.logo-tile {
+  @apply grid place-items-center rounded-xl border border-line bg-white px-4 transition-[border-color,transform] duration-200;
+}
+a.logo-tile:hover {
+  @apply -translate-y-0.5 border-ink/40;
+}
+}
+
+/* ---------- Dialogs (project details, command palette) ---------- */
+dialog {
+  color: inherit;
+}
+dialog::backdrop {
+  background: rgb(6 12 22 / 0.62);
+  backdrop-filter: blur(3px);
+}
+dialog[open] {
+  animation: dialog-in 0.16s ease-out;
+}
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.panel-in {
+  animation: panel-in 0.22s ease-out;
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(6px); }
 }
 
 /* ---------- Hero extraction demo: one orchestrated load sequence ---------- */
@@ -96,4 +169,6 @@ button {
   html { scroll-behavior: auto; }
   .scan-card::after { display: none; }
   .json-line { animation: none; opacity: 1; transform: none; }
+  dialog[open], .panel-in { animation: none; }
+  .logo-tile { transition: none; }
 }
