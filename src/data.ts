@@ -486,3 +486,54 @@ export const affiliations = [
   { name: 'Amity University', logo: asset('logos/amity.png'), height: 40, section: 'education', sectionLabel: 'Education' },
   { name: 'Springer Nature', logo: asset('logos/springer.png'), height: 17, section: 'research', sectionLabel: 'Research' },
 ];
+
+// ---------------------------------------------------------------------------
+// One measured, checkable fact per project, shown when a card is hovered or
+// focused. Every number here comes from running the project: test counts from
+// the suite, benchmark figures from the run recorded in that repo's README.
+// A project with nothing measured yet simply has no entry.
+// ---------------------------------------------------------------------------
+export const highlights: Record<string, string> = {
+  'Mini SQL Engine':
+    'Every query result is checked against SQLite, including the NULL and LEFT JOIN cases engines get wrong. 49 tests.',
+  'RAG Knowledge Assistant':
+    'Runs fully offline with NumPy as the only dependency, and answers have to cite their sources. 11 tests.',
+  'Distributed Job Queue':
+    'About 400 lines on SQLite. Survives crashed workers, retries, poison jobs and duplicate submissions. 12 tests.',
+  'Auth Service':
+    'Python standard library only, so every security decision is visible in the code rather than inside a framework. 20 tests.',
+  'Deepfake Audio Detection':
+    '99.33% accuracy over 10,000 clips. Published by Springer, ICICC 2026.',
+  'LLM Gateway':
+    'The circuit breaker opens after 3 failures and recovers through exactly one half-open trial request. 22 tests.',
+  'DuckDB ELT Pipeline':
+    'The whole warehouse is one file, and nothing reaches the marts until the data-quality checks pass. 8 tests.',
+  'Realtime Chat Server':
+    'History replays after a dropped connection, and a pub/sub seam lets several processes act as one. One dependency.',
+  'Kubernetes Microservices Deploy':
+    'CI starts a real cluster on every push. Measured across a rolling restart: 291 requests served, 0 failed. 32 tests.',
+  'Observability Kit':
+    'Metrics, traces, logs and SLO burn-rate alerts, written from scratch with no dependencies. 23 tests.',
+  'Secret Scanner':
+    'Eight provider patterns plus an entropy-gated generic rule, reported as SARIF 2.1.0. 17 tests.',
+  'Infra Policy Linter':
+    '18 rules over Dockerfiles and Kubernetes manifests, each reported with its file and line. 18 tests.',
+  'Vector Search Engine':
+    'HNSW written from scratch: recall@10 of 0.979 while comparing 1.7% of the dataset.',
+  'Event-Sourced Ledger':
+    'Eight threads race for 4,000 from an account holding 1,000. Exactly 1,000 moves. 13 tests.',
+  'Churn ML Pipeline':
+    'ROC AUC 0.7905, against the 0.7896 a model that knew the true probabilities scores. There is nothing left to learn.',
+  'Agent Tool Runtime':
+    'Every step is recorded, so a run replays exactly. No runtime dependencies. 20 tests.',
+  'LLM Eval Harness':
+    'Confidence intervals on every score; the regression gate fails CI only when a drop is unlikely to be noise. 13 tests.',
+  'Stream Windowing Engine':
+    'Tumbling, sliding and session windows with watermarks and a measured lateness trade-off. 30 tests.',
+  'URL Shortener Service':
+    'Measured single-threaded: 6,470 shortens and 64,715 resolves per second. 21 tests.',
+  'Rate Limiter Lab':
+    'Four algorithms implemented the same way and compared under adversarial burst traffic. 18 tests.',
+  'Recommender Engine':
+    'Item kNN and ALS against real baselines: hit rate@10 of 0.321, where popularity scores 0.122.',
+};
