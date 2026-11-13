@@ -150,6 +150,46 @@ export const projects: Project[] = [
     shot: 'Sign-in screen',
   },
   {
+    name: 'Kubernetes Microservices Deploy',
+    repo: gh('k8s-microservices-deploy'),
+    area: 'Cloud & security',
+    summary:
+      'Three services and the Helm chart that runs them: health probes, graceful shutdown, locked-down pods, autoscaling and network policies. CI installs it on a real cluster and checks that restarts drop no requests.',
+    stack: ['Kubernetes', 'Helm', 'Docker', 'GitHub Actions', 'Python'],
+    image: '/projects/k8s-microservices-deploy.webp',
+    shot: 'Real output from the CI run on a live cluster',
+  },
+  {
+    name: 'Observability Kit',
+    repo: gh('observability-kit'),
+    area: 'Cloud & security',
+    summary:
+      'Metrics in the Prometheus format, distributed traces with W3C trace context, structured logs tied to traces, and error-budget alerts that page only when two time windows agree. Demo is a simulated incident.',
+    stack: ['Python', 'Prometheus format', 'Distributed tracing', 'SLO alerting'],
+    image: '/projects/observability-kit.webp',
+    shot: 'Real output: python -m obskit',
+  },
+  {
+    name: 'Secret Scanner',
+    repo: gh('secret-scanner'),
+    area: 'Cloud & security',
+    summary:
+      'Finds credentials committed to a codebase and dependencies with known security holes. Supports a baseline for old findings, output for GitHub code scanning, and fails CI on anything new.',
+    stack: ['Python', 'Entropy detection', 'SARIF', 'CI gating'],
+    image: '/projects/secret-scanner.webp',
+    shot: 'Real output: python -m secretscan demo',
+  },
+  {
+    name: 'Infra Policy Linter',
+    repo: gh('infra-policy-linter'),
+    area: 'Cloud & security',
+    summary:
+      'Checks Dockerfiles and Kubernetes manifests for risky settings such as running as root, baked-in secrets and missing limits. 18 rules with file, line and reason, and a CI exit code.',
+    stack: ['Python', 'Docker', 'Kubernetes', 'YAML', 'Policy as code'],
+    image: '/projects/infra-policy-linter.webp',
+    shot: 'Real output: python -m policylint examples/bad',
+  },
+  {
     name: 'Vector Search Engine',
     repo: gh('vector-search-engine'),
     area: 'AI & LLMs',
