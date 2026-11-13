@@ -58,7 +58,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0A111E' : '#F3F5F8');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101418' : '#FFFFFF');
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
