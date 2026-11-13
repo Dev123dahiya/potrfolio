@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import Reveal from './Reveal';
 import { ExternalLink, Github } from 'lucide-react';
 import { publication } from '../data';
 
@@ -30,7 +31,7 @@ function Spectrogram({ voice }: { voice: Voice }) {
               0.16 * (c % 4 === 0 ? 1 : 0.25) * (f > 0.72 ? 1 : 0.15);
         const a = Math.min(0.95, Math.max(0.05, energy));
         out.push(
-          <rect key={`${c}-${r}`} x={c * 10} y={(rows - 1 - r) * 10} width={9} height={9} rx={1.5} fill="#7FD1B9" style={{ opacity: a, transition: 'opacity 0.45s ease' }} />
+          <rect key={`${c}-${r}`} x={c * 10} y={(rows - 1 - r) * 10} width={9} height={9} rx={1.5} fill="#7FD1CB" style={{ opacity: a, transition: 'opacity 0.45s ease' }} />
         );
       }
     }
@@ -46,39 +47,40 @@ function Spectrogram({ voice }: { voice: Voice }) {
 export default function Research() {
   const [voice, setVoice] = useState<Voice>('real');
   return (
-    <section id="research" className="border-y border-nightLine bg-night py-20 text-[#E6EDF8] lg:py-28">
-      <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="research" className="bg-band py-20 text-[#EDF0F3] lg:py-24">
+      <Reveal className="wrap">
+        <h2 className="sec-title text-white">Research</h2>
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h2 className="h-section text-white">Research</h2>
-          <img src={publication.publisherLogo} alt="Springer Nature" className="mt-8 h-5 w-auto opacity-90" loading="lazy" />
-          <h3 className="mt-7 font-display text-[1.6rem] font-bold leading-snug tracking-[-0.015em] text-white">{publication.title}</h3>
-          <p className="mt-3 text-[0.95rem] text-[#9FB2CF]">{publication.venue}</p>
-          <p className="mt-6 max-w-[36rem] leading-relaxed text-[#C9D6EA]">{publication.summary}</p>
+          <img src={publication.publisherLogo} alt="Springer Nature" className="h-5 w-auto opacity-90" loading="lazy" />
+          <h3 className="mt-7 font-display text-[1.6rem] font-bold leading-snug text-white">{publication.title}</h3>
+          <p className="mt-3 text-[0.95rem] text-[#A3AFBA]">{publication.venue}</p>
+          <p className="mt-6 max-w-[36rem] leading-relaxed text-[#CBD3DA]">{publication.summary}</p>
           <dl className="mt-8 grid max-w-[24rem] grid-cols-2 gap-6">
             <div>
-              <dt className="text-[0.9rem] text-[#9FB2CF]">Accuracy</dt>
+              <dt className="text-[0.9rem] text-[#A3AFBA]">Accuracy</dt>
               <dd className="font-display text-[2rem] font-bold text-white">99.33%</dd>
             </div>
             <div>
-              <dt className="text-[0.9rem] text-[#9FB2CF]">Audio clips</dt>
+              <dt className="text-[0.9rem] text-[#A3AFBA]">Audio clips</dt>
               <dd className="font-display text-[2rem] font-bold text-white">10,000</dd>
             </div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={publication.url} target="_blank" rel="noreferrer" className="btn bg-white text-night hover:bg-[#E6EDF8]">
+            <a href={publication.url} target="_blank" rel="noreferrer" className="btn-primary py-3">
               <ExternalLink size={17} aria-hidden /> Read on SpringerLink
             </a>
-            <a href={publication.repo} target="_blank" rel="noreferrer" className="btn border border-nightLine text-white hover:border-[#3A4D6E]">
+            <a href={publication.repo} target="_blank" rel="noreferrer" className="btn-outline-light px-5">
               <Github size={17} aria-hidden /> Code
             </a>
           </div>
         </div>
 
         <figure>
-          <div className="rounded-2xl border border-nightLine bg-[#0E1B30] p-5">
+          <div className="rounded-[15px] bg-night/90 p-5 ring-1 ring-white/15 backdrop-blur">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-[0.9rem] text-[#9FB2CF]">What the model looks at</p>
-              <div className="flex rounded-full bg-[#16243C] p-1" role="group" aria-label="Choose a voice type">
+              <p className="text-[0.9rem] text-[#A3AFBA]">What the model looks at</p>
+              <div className="flex rounded-full bg-[#1A2228] p-1" role="group" aria-label="Choose a voice type">
                 {(['real', 'generated'] as Voice[]).map((v) => (
                   <button
                     key={v}
@@ -86,7 +88,7 @@ export default function Research() {
                     aria-pressed={voice === v}
                     onClick={() => setVoice(v)}
                     className={`rounded-full px-3.5 py-1 text-[0.85rem] transition-colors ${
-                      voice === v ? 'bg-[#7FD1B9] font-medium text-night' : 'text-[#B9C7DD] hover:text-white'
+                      voice === v ? 'bg-[#7FD1CB] font-medium text-night' : 'text-[#BAC4CD] hover:text-white'
                     }`}
                   >
                     {v === 'real' ? 'Human voice' : 'AI-generated'}
@@ -95,16 +97,17 @@ export default function Research() {
               </div>
             </div>
             <Spectrogram voice={voice} />
-            <div className="mt-3 flex justify-between text-[0.78rem] text-[#7388A8]">
+            <div className="mt-3 flex justify-between text-[0.78rem] text-[#7C8994]">
               <span>Time →</span>
               <span>Pitch ↑</span>
             </div>
           </div>
-          <figcaption className="mt-3 text-[0.88rem] leading-snug text-[#9FB2CF]" aria-live="polite">
+          <figcaption className="mt-3 text-[0.88rem] leading-snug text-[#A3AFBA]" aria-live="polite">
             {notes[voice]} This is a drawing to show the idea, not data from the paper.
           </figcaption>
         </figure>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

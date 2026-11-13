@@ -1,13 +1,14 @@
 import { Award } from 'lucide-react';
 import { education } from '../data';
+import Reveal from './Reveal';
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 lg:py-28">
-      <div className="wrap">
-        <h2 className="h-section">Education</h2>
-        <div className="mt-12 overflow-hidden rounded-2xl border border-line bg-surface lg:grid lg:grid-cols-12">
-          <figure className="relative lg:col-span-7">
+    <section id="education" className="py-20 lg:py-24">
+      <Reveal className="wrap">
+        <h2 className="sec-title">Education</h2>
+        <div className="feature-box mt-12 overflow-hidden lg:grid lg:grid-cols-12">
+          <figure className="relative lg:col-span-6">
             <img
               src={education.photo}
               alt="Amity University campus building in Noida"
@@ -20,15 +21,15 @@ export default function Education() {
               {education.photoCredit}
             </figcaption>
           </figure>
-          <div className="p-6 sm:p-9 lg:col-span-5">
+          <div className="p-6 sm:p-9 lg:col-span-6">
             <a href={education.url} target="_blank" rel="noreferrer" className="logo-tile inline-grid h-20 px-5" aria-label={`${education.school} website`}>
               <img src={education.logo} alt="" className="h-12 w-auto" loading="lazy" />
             </a>
-            <h3 className="mt-7 font-display text-[1.5rem] font-bold leading-snug tracking-[-0.015em]">{education.degree}</h3>
+            <h3 className="mt-7 font-display text-[1.4rem] font-bold leading-snug">{education.degree}</h3>
             <p className="mt-1 text-muted">
               {education.school}, {education.years}
             </p>
-            <p className="mt-5 inline-flex items-baseline gap-2 rounded-lg bg-signalSoft px-3 py-1.5">
+            <p className="mt-5 inline-flex items-baseline gap-2 rounded-[5px] bg-signalSoft px-3 py-1.5">
               <span className="font-display text-[1.35rem] font-bold text-signal">{education.grade.replace('CGPA ', '')}</span>
               <span className="text-[0.9rem] text-signal">CGPA</span>
             </p>
@@ -36,14 +37,14 @@ export default function Education() {
             <ul className="mt-3 space-y-2.5">
               {education.certifications.map((c) => (
                 <li key={c} className="flex items-start gap-2.5 leading-snug text-ink/85">
-                  <Award size={17} className="mt-0.5 shrink-0 text-cobalt" aria-hidden />
+                  <Award size={17} className="mt-0.5 shrink-0 text-signal" aria-hidden />
                   {c}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

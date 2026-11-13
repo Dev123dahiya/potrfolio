@@ -77,7 +77,7 @@ export default function Palette() {
       aria-label="Search"
       onClose={() => setPaletteOpen(false)}
       onClick={(e) => e.target === dialog.current && setPaletteOpen(false)}
-      className="m-0 mx-auto mt-[12vh] w-[min(36rem,calc(100vw-2rem))] rounded-2xl border border-line bg-surface p-0 shadow-[0_40px_90px_-30px_rgba(6,12,22,0.7)]"
+      className="m-0 mx-auto mt-[12vh] w-[min(36rem,calc(100vw-2rem))] rounded-[15px] border border-line bg-surface p-0 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.7)]"
     >
       <div className="flex items-center gap-3 border-b border-line px-4">
         <Search size={18} className="shrink-0 text-muted" aria-hidden />
@@ -119,7 +119,7 @@ export default function Palette() {
               tabIndex={-1}
               onMouseMove={() => setIndex(i)}
               onClick={() => choose(it)}
-              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left ${i === index ? 'bg-paper' : ''}`}
+              className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left ${i === index ? 'bg-signalSoft' : ''}`}
             >
               <it.icon size={17} className="shrink-0 text-muted" aria-hidden />
               <span className="min-w-0 flex-1 truncate font-medium">{it.label}</span>
