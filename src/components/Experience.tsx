@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { experience } from '../data';
+import Reveal from './Reveal';
 
 // One company at a time: pick it on the left, read it on the right.
 export default function Experience() {
@@ -17,9 +18,9 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 lg:py-28">
-      <div className="wrap">
-        <h2 className="h-section">Experience</h2>
+    <section id="experience" className="py-20 lg:py-24">
+      <Reveal className="wrap">
+        <h2 className="sec-title">Experience</h2>
         <p className="lead">Three roles so far. Choose one to see what I did there.</p>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-12 lg:gap-8">
@@ -36,11 +37,11 @@ export default function Experience() {
                   aria-controls="exp-panel"
                   tabIndex={on ? 0 : -1}
                   onClick={() => setActive(i)}
-                  className={`flex items-center gap-4 rounded-2xl border p-3 text-left transition-[border-color,background-color,box-shadow] ${
-                    on ? 'border-signal bg-surface shadow-[0_14px_34px_-22px_rgb(var(--signal))]' : 'border-line bg-surface/60 hover:border-ink/30 hover:bg-surface'
+                  className={`card flex items-center gap-4 border-l-4 p-3 text-left transition-[border-color,box-shadow,transform] duration-200 ${
+                    on ? 'border-signal shadow-cardHover' : 'border-transparent hover:-translate-y-0.5 hover:shadow-cardHover'
                   }`}
                 >
-                  <span className={`grid h-14 w-[5.5rem] shrink-0 place-items-center rounded-lg px-3 ${x.logoOnDark ? 'bg-[#0d0d12]' : 'border border-line bg-white'}`}>
+                  <span className={`grid h-14 w-[5.5rem] shrink-0 place-items-center rounded-[8px] px-3 ${x.logoOnDark ? 'bg-[#0d0d12]' : 'border border-line bg-white'}`}>
                     <img src={x.logo} alt="" className="max-h-8 w-auto max-w-full object-contain" loading="lazy" />
                   </span>
                   <span className="min-w-0">
@@ -59,11 +60,11 @@ export default function Experience() {
             role="tabpanel"
             aria-labelledby={`exp-tab-${active}`}
             key={e.org}
-            className="panel-in rounded-2xl border border-line bg-surface p-6 sm:p-8 lg:col-span-8"
+            className="panel-in card p-6 sm:p-9 lg:col-span-8"
           >
             <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
               <div>
-                <h3 className="font-display text-[1.5rem] font-bold leading-snug tracking-[-0.015em]">{e.role}</h3>
+                <h3 className="font-display text-[1.4rem] font-bold leading-snug">{e.role}</h3>
                 <p className="mt-1 text-muted">
                   {e.org}, {e.place}
                 </p>
@@ -87,7 +88,7 @@ export default function Experience() {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

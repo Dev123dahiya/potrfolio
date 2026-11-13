@@ -13,8 +13,8 @@ export default function Shot({
   className?: string;
 }) {
   return (
-    <figure className={`min-w-0 overflow-hidden rounded-xl border border-line bg-surface shadow-[0_18px_40px_-24px_rgba(14,26,43,0.45)] ${className}`}>
-      <figcaption className="flex items-center gap-2 border-b border-line bg-paper px-3 py-2">
+    <figure className={`min-w-0 overflow-hidden rounded-[10px] border border-line bg-surface ${className}`}>
+      <figcaption className="flex items-center gap-2 border-b border-line bg-tint px-3 py-2">
         <span className="flex gap-1.5" aria-hidden>
           <span className="h-2.5 w-2.5 rounded-full bg-[#F0A49B]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#F3CF7A]" />

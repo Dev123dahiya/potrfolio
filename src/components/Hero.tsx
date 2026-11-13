@@ -79,7 +79,7 @@ function ExtractionDemo() {
 
   return (
     <figure className="w-full">
-      <div className="rounded-2xl bg-night p-4 shadow-[0_24px_60px_-28px_rgba(11,21,38,0.55)] ring-1 ring-nightLine sm:p-5">
+      <div className="rounded-[15px] bg-night/90 p-4 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/15 backdrop-blur sm:p-5">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Choose a sample document">
             {samples.map((x, i) => (
@@ -93,7 +93,7 @@ function ExtractionDemo() {
                   setRun((r) => r + 1);
                 }}
                 className={`rounded-full px-3 py-1 text-[0.82rem] transition-colors ${
-                  i === which ? 'bg-[#7FD1B9] font-medium text-night' : 'bg-[#16243C] text-[#B9C7DD] hover:bg-[#1D2F4D] hover:text-white'
+                  i === which ? 'bg-[#7FD1CB] font-medium text-night' : 'bg-[#1A2228] text-[#BAC4CD] hover:bg-[#243039] hover:text-white'
                 }`}
               >
                 {x.tab}
@@ -103,14 +103,14 @@ function ExtractionDemo() {
           <button
             type="button"
             onClick={() => setRun((r) => r + 1)}
-            className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.82rem] text-[#B9C7DD] transition-colors hover:bg-[#16243C] hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.82rem] text-[#BAC4CD] transition-colors hover:bg-[#1A2228] hover:text-white"
           >
             <RotateCw size={14} aria-hidden /> Run again
           </button>
         </div>
 
         <div key={`${which}-${run}`} role="tabpanel">
-          <p className="mb-2 font-mono text-[0.8rem] text-[#8FA3C2]">{s.file}</p>
+          <p className="mb-2 font-mono text-[0.8rem] text-[#93A1AD]">{s.file}</p>
           <div className="scan-card rounded-lg bg-[#FBFCFE] px-4 py-3.5 text-[0.82rem] leading-relaxed text-[#2b3445]">
             <div className="flex items-baseline justify-between">
               <span className="font-semibold text-[#111a29]">{s.vendor}</span>
@@ -126,22 +126,22 @@ function ExtractionDemo() {
             </div>
           </div>
 
-          <div className="my-3 flex items-center gap-3 text-[0.8rem] text-[#8FA3C2]">
+          <div className="my-3 flex items-center gap-3 text-[0.8rem] text-[#93A1AD]">
             <span className="h-px flex-1 bg-nightLine" />
             OCR, then an LLM extracts the fields
             <span className="h-px flex-1 bg-nightLine" />
           </div>
 
-          <pre className="overflow-x-auto rounded-lg border border-nightLine bg-[#0E1B30] px-4 py-3 font-mono text-[0.82rem] leading-[1.65] text-[#D7E3F5]">
+          <pre className="overflow-x-auto rounded-lg border border-nightLine bg-[#11171C] px-4 py-3 font-mono text-[0.82rem] leading-[1.65] text-[#DCE3E9]">
             <code>
               <span className="json-line block" style={{ animationDelay: '1.2s' }}>{'{'}</span>
               {s.fields.map(([k, v, t], idx) => (
                 <span key={k} className="json-line block" style={{ animationDelay: `${1.3 + idx * 0.14}s` }}>
                   {'  '}
-                  <span className="text-[#8DB4FF]">"{k}"</span>
-                  <span className="text-[#8FA3C2]">: </span>
-                  {t === 'str' ? <span className="text-[#7FD1B9]">"{v}"</span> : <span className="text-[#F2C27B]">{v}</span>}
-                  {idx < s.fields.length - 1 ? <span className="text-[#8FA3C2]">,</span> : null}
+                  <span className="text-[#6FC7F2]">"{k}"</span>
+                  <span className="text-[#93A1AD]">: </span>
+                  {t === 'str' ? <span className="text-[#7FD1CB]">"{v}"</span> : <span className="text-[#F2C27B]">{v}</span>}
+                  {idx < s.fields.length - 1 ? <span className="text-[#93A1AD]">,</span> : null}
                 </span>
               ))}
               <span className="json-line block" style={{ animationDelay: `${1.3 + s.fields.length * 0.14}s` }}>{'}'}</span>
@@ -149,7 +149,7 @@ function ExtractionDemo() {
           </pre>
         </div>
       </div>
-      <figcaption className="mt-3 text-[0.85rem] leading-snug text-muted">
+      <figcaption className="mt-3 text-[0.85rem] leading-snug text-white/65">
         Pick a document to see the kind of extraction my Horizon17 pipeline ran on 500 real invoices. These three documents and their numbers are made up.
       </figcaption>
     </figure>
@@ -158,40 +158,41 @@ function ExtractionDemo() {
 
 export default function Hero() {
   return (
-    <section id="top" className="wrap grid items-center gap-12 pb-20 pt-12 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:pb-24 lg:pt-20">
-      <div>
-        <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface py-1.5 pl-3 pr-4 text-[0.92rem]">
-          <span className="h-2 w-2 rounded-full bg-signal" aria-hidden />
-          <span>
-            {profile.role}, {profile.location}
-          </span>
-        </p>
-
-        <h1
-          className="mt-7 font-display text-[2.5rem] font-extrabold leading-[1.03] tracking-[-0.028em] text-ink sm:text-[3.3rem] lg:text-[3.6rem]"
-          style={{ fontVariationSettings: "'wdth' 94, 'opsz' 96" }}
-        >
-          {profile.headline}
-        </h1>
-
-        <p className="mt-6 max-w-[36rem] text-[1.08rem] leading-relaxed text-muted">{profile.intro}</p>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <a href="#work" className="btn-primary">
-            See my projects
-          </a>
-          <a href={profile.resumeUrl} className="btn-quiet" target="_blank" rel="noreferrer">
-            <FileText size={17} aria-hidden /> Résumé (PDF)
-          </a>
-          <a href={`mailto:${profile.email}`} className="btn-quiet">
-            <Mail size={17} aria-hidden /> Email me
-          </a>
+    <>
+      <section id="top" className="bg-band text-white">
+        <div className="wrap grid items-center gap-12 pb-28 pt-32 lg:grid-cols-2 lg:gap-16 lg:pb-32 lg:pt-40">
+          <div>
+            <p className="inline-flex items-center gap-2.5 rounded-[5px] border border-white/25 bg-white/5 px-3 py-1.5 font-nav text-[0.9rem] text-white/90">
+              <span className="h-2 w-2 rounded-full bg-[#7FD1CB]" aria-hidden />
+              {profile.role}, {profile.location}
+            </p>
+            <h1 className="mt-6 font-display text-[2.3rem] font-bold uppercase leading-[1.08] sm:text-[3.1rem]">{profile.name}</h1>
+            <p className="mt-5 max-w-[34rem] font-display text-[1.25rem] font-semibold leading-snug text-white/90 sm:text-[1.45rem]">{profile.headline}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#work" className="btn-primary py-3">
+                See my projects
+              </a>
+              <a href={profile.resumeUrl} className="btn-outline-light px-5" target="_blank" rel="noreferrer">
+                <FileText size={17} aria-hidden /> Résumé (PDF)
+              </a>
+              <a href={`mailto:${profile.email}`} className="btn-outline-light px-5">
+                <Mail size={17} aria-hidden /> Email me
+              </a>
+            </div>
+          </div>
+          <ExtractionDemo />
         </div>
+      </section>
 
-        <p className="mt-8 max-w-[36rem] text-[0.95rem] leading-relaxed text-muted">{profile.openTo}</p>
-      </div>
-
-      <ExtractionDemo />
-    </section>
+      {/* Intro box that overlaps the banner */}
+      <section aria-labelledby="intro-title" className="wrap relative z-10 -mt-14">
+        <div className="feature-box px-6 py-7 sm:px-9 sm:py-9">
+          <h2 id="intro-title" className="font-display text-[1.6rem] font-medium uppercase leading-tight text-ink sm:text-[2rem]">
+            What I do
+          </h2>
+          <p className="mt-3 max-w-[60rem] leading-relaxed text-muted">{profile.intro}</p>
+        </div>
+      </section>
+    </>
   );
 }
