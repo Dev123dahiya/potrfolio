@@ -25,7 +25,7 @@ export const profile = {
   openTo: 'Open to Software Engineer, AI/ML Engineer, Backend and Data Engineer roles, on-site, hybrid or remote.',
 };
 
-export type Area = 'AI & LLMs' | 'Backend & full stack' | 'Data';
+export type Area = 'AI & LLMs' | 'Backend & full stack' | 'Data' | 'Cloud & security';
 
 export interface Project {
   name: string;
@@ -57,7 +57,48 @@ export const featured = {
   shot: 'Dashboard, running locally on a fresh database',
 };
 
+// Order matters: the gallery shows the first nine until the visitor asks for the rest.
 export const projects: Project[] = [
+  {
+    name: 'Mini SQL Engine',
+    repo: gh('mini-sql-engine'),
+    area: 'Data',
+    summary:
+      'A SQL engine in pure Python: lexer, parser, a planner that pushes filters down and picks indexes and join algorithms, and an executor. Its answers are checked against SQLite.',
+    stack: ['Python', 'Query planning', 'Hash joins', 'Indexes', 'SQLite (as the reference)'],
+    image: '/projects/mini-sql-engine.webp',
+    shot: 'Real output: python -m minisql',
+  },
+  {
+    name: 'RAG Knowledge Assistant',
+    repo: gh('rag-knowledge-assistant'),
+    area: 'AI & LLMs',
+    summary:
+      'Question answering over documents, built from its parts: heading-aware chunking, keyword and vector retrieval fused together, answers that must cite sources, and an evaluation against labelled questions.',
+    stack: ['Python', 'NumPy', 'BM25', 'Vector search', 'Retrieval evaluation'],
+    image: '/projects/rag-knowledge-assistant.webp',
+    shot: 'Real output: python -m ragkit eval',
+  },
+  {
+    name: 'Distributed Job Queue',
+    repo: gh('distributed-job-queue'),
+    area: 'Backend & full stack',
+    summary:
+      'A durable background-job queue on SQLite that several worker processes share safely. Handles crashed workers, retries with backoff, poison jobs and duplicate submissions.',
+    stack: ['Python', 'SQLite', 'Concurrent workers', 'Retries', 'Idempotency'],
+    image: '/projects/distributed-job-queue.webp',
+    shot: 'Real output: python -m jobqueue demo',
+  },
+  {
+    name: 'Auth Service',
+    repo: gh('auth-service'),
+    area: 'Cloud & security',
+    summary:
+      'The core of a login system using only the Python standard library: scrypt passwords, signed access tokens, rotating refresh tokens that detect theft, two-factor codes, lockout and role-based permissions.',
+    stack: ['Python', 'JWT', 'TOTP (RFC 6238)', 'scrypt', 'RBAC'],
+    image: '/projects/auth-service.webp',
+    shot: 'Real output: python -m authsvc',
+  },
   {
     name: 'Deepfake Audio Detection',
     repo: gh('deepfake-audio-detection'),
@@ -69,6 +110,56 @@ export const projects: Project[] = [
     shot: 'Streamlit app',
   },
   {
+    name: 'LLM Gateway',
+    repo: gh('llm-gateway'),
+    area: 'AI & LLMs',
+    summary:
+      'One front door for several LLM providers: fallback with circuit breakers, response caching, personal-data masking before a prompt leaves, prompt-injection screening and per-team budgets. Demo runs on scripted providers.',
+    stack: ['Python', 'Circuit breaker', 'Caching', 'PII redaction', 'Cost tracking'],
+    image: '/projects/llm-gateway.webp',
+    shot: 'Real output: python -m gateway',
+  },
+  {
+    name: 'DuckDB ELT Pipeline',
+    repo: gh('duckdb-elt-pipeline'),
+    area: 'Data',
+    summary:
+      'An incremental data pipeline on DuckDB: raw files land untouched, SQL validates and models them, bad rows go to quarantine, and nothing reaches the reporting tables unless data-quality checks pass.',
+    stack: ['Python', 'DuckDB', 'SQL', 'Slowly changing dimensions', 'Data quality checks'],
+    image: '/projects/duckdb-elt-pipeline.webp',
+    shot: 'Real output: python -m eltpipe demo',
+  },
+  {
+    name: 'Realtime Chat Server',
+    repo: gh('realtime-chat-server'),
+    area: 'Backend & full stack',
+    summary:
+      'A WebSocket chat server: rooms, presence, typing indicators, replay of missed messages after a dropped connection, rate limits, and a pub/sub layer so several server processes act as one.',
+    stack: ['TypeScript', 'Node.js', 'WebSockets', 'Pub/sub'],
+    image: '/projects/realtime-chat-server.webp',
+    shot: 'Real output: npm test',
+  },
+  {
+    name: 'BIOMED XPERT CRM',
+    repo: gh('biomed-xpert-crm'),
+    area: 'Backend & full stack',
+    summary:
+      'Lead and sales tracker for a biomedical equipment business, with a six-stage pipeline and Excel, CSV and PDF exports.',
+    stack: ['TypeScript', 'React', 'Express', 'Prisma', 'Docker'],
+    image: '/projects/biomed-crm.webp',
+    shot: 'Sign-in screen',
+  },
+  {
+    name: 'Vector Search Engine',
+    repo: gh('vector-search-engine'),
+    area: 'AI & LLMs',
+    summary:
+      'The HNSW index used inside vector databases, written from scratch, with an exact baseline and a benchmark of accuracy against work done, including the case where it breaks down.',
+    stack: ['Python', 'NumPy', 'HNSW', 'Benchmarking'],
+    image: '/projects/vector-search-engine.webp',
+    shot: 'Real output: python -m vecsearch',
+  },
+  {
     name: 'OCR Bill Analyzer',
     repo: gh('Invoice_Parser'),
     area: 'AI & LLMs',
@@ -77,6 +168,86 @@ export const projects: Project[] = [
     stack: ['Python', 'FastAPI', 'EasyOCR', 'Gemini', 'Groq'],
     image: '/projects/ocr-bill-analyzer.webp',
     shot: 'Upload screen',
+  },
+  {
+    name: 'Event-Sourced Ledger',
+    repo: gh('event-sourced-ledger'),
+    area: 'Backend & full stack',
+    summary:
+      'A double-entry accounting ledger where an append-only event log is the only source of truth. Balances are a cache that can be deleted and rebuilt from the log.',
+    stack: ['Python', 'SQLite', 'Event sourcing', 'Double-entry accounting'],
+    image: '/projects/event-sourced-ledger.webp',
+    shot: 'Real output: python -m ledger',
+  },
+  {
+    name: 'Churn ML Pipeline',
+    repo: gh('churn-ml-pipeline'),
+    area: 'Data',
+    summary:
+      'What comes after model.fit: input validation, leak-free training, calibrated probabilities, a decision threshold chosen from business costs, a model registry with a promotion gate, and drift monitoring. Uses synthetic data.',
+    stack: ['Python', 'scikit-learn', 'pandas', 'Model registry', 'Drift monitoring'],
+    image: '/projects/churn-ml-pipeline.webp',
+    shot: 'Real output: python -m churnml',
+  },
+  {
+    name: 'Agent Tool Runtime',
+    repo: gh('agent-tool-runtime'),
+    area: 'AI & LLMs',
+    summary:
+      'A strict runtime for tool-using LLM agents. It validates every tool call, blocks actions that need approval, caps the number of steps, records each step and can replay a run exactly. Demo runs on a scripted model.',
+    stack: ['Python', 'Tool calling', 'Guardrails', 'Replayable traces'],
+    image: '/projects/agent-tool-runtime.webp',
+    shot: 'Real output: python -m agentrt',
+  },
+  {
+    name: 'LLM Eval Harness',
+    repo: gh('llm-eval-harness'),
+    area: 'AI & LLMs',
+    summary:
+      'Evaluates LLM outputs with statistics attached: confidence intervals on every score, a significance test between two versions, and a regression gate that fails CI only when a drop is unlikely to be noise.',
+    stack: ['Python', 'Bootstrap intervals', 'McNemar test', 'CI gating'],
+    image: '/projects/llm-eval-harness.webp',
+    shot: 'Real output: python -m evalkit demo',
+  },
+  {
+    name: 'Stream Windowing Engine',
+    repo: gh('stream-windowing-engine'),
+    area: 'Data',
+    summary:
+      'Event-time aggregation for streams that arrive out of order: tumbling, sliding and session windows, watermarks, corrections for late data, and checkpoints that resume without double-counting.',
+    stack: ['Python', 'Stream processing', 'Watermarks', 'Checkpointing'],
+    image: '/projects/stream-windowing-engine.webp',
+    shot: 'Real output: python -m streamwin',
+  },
+  {
+    name: 'URL Shortener Service',
+    repo: gh('url-shortener-service'),
+    area: 'Backend & full stack',
+    summary:
+      'The system-design interview answer, actually built and measured: unique short codes, sharding with consistent hashing, a read cache, and tests for each part.',
+    stack: ['Python', 'Consistent hashing', 'LRU cache', 'Sharding'],
+    image: '/projects/url-shortener-service.webp',
+    shot: 'Real output: python -m shortener',
+  },
+  {
+    name: 'Rate Limiter Lab',
+    repo: gh('rate-limiter-lab'),
+    area: 'Backend & full stack',
+    summary:
+      'Four rate-limiting algorithms behind one interface, middleware for FastAPI and Starlette, and a benchmark against a client that bursts at window edges to show which ones let extra traffic through.',
+    stack: ['Python', 'ASGI middleware', 'Token bucket', 'Sliding window'],
+    image: '/projects/rate-limiter-lab.webp',
+    shot: 'Real output: python -m bench.run',
+  },
+  {
+    name: 'Recommender Engine',
+    repo: gh('recsys-engine'),
+    area: 'Data',
+    summary:
+      'Three recommenders for click and purchase data written from scratch, with an offline evaluation that holds out each user\'s last interaction and tunes on a separate validation split. Uses synthetic data.',
+    stack: ['Python', 'NumPy', 'Matrix factorisation (ALS)', 'Item kNN', 'Ranking metrics'],
+    image: '/projects/recsys-engine.webp',
+    shot: 'Real output: python -m recsys',
   },
   {
     name: 'OrbitX',
@@ -99,13 +270,13 @@ export const projects: Project[] = [
     shot: 'The scoring engine run on a sample answer',
   },
   {
-    name: 'BIOMED XPERT CRM',
-    repo: gh('biomed-xpert-crm'),
+    name: 'Smart Hospital Management',
+    repo: gh('Smart-Hospital-Management-System'),
     area: 'Backend & full stack',
     summary:
-      'Lead and sales tracker for a biomedical equipment business, with a six-stage pipeline and Excel, CSV and PDF exports.',
-    stack: ['TypeScript', 'React', 'Express', 'Prisma', 'Docker'],
-    image: '/projects/biomed-crm.webp',
+      'Hospital workflow app with role-based logins for admins, doctors and patients, appointments, prescriptions, reports and emergency alerts.',
+    stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
+    image: '/projects/smart-hospital.webp',
     shot: 'Sign-in screen',
   },
   {
@@ -118,13 +289,13 @@ export const projects: Project[] = [
     shot: 'Sign-in screen',
   },
   {
-    name: 'Smart Hospital Management',
-    repo: gh('Smart-Hospital-Management-System'),
+    name: 'Team Task Manager',
+    repo: gh('taskflow-pro'),
     area: 'Backend & full stack',
     summary:
-      'Hospital workflow app with role-based logins for admins, doctors and patients, appointments, prescriptions, reports and emergency alerts.',
-    stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
-    image: '/projects/smart-hospital.webp',
+      'Full-stack task manager: admins create projects and assign work, members update their own tasks, with a dashboard of totals, overdue items and filters.',
+    stack: ['React', 'Tailwind CSS', 'Express', 'MongoDB', 'JWT'],
+    image: '/projects/team-task-manager.webp',
     shot: 'Sign-in screen',
   },
   {
@@ -137,6 +308,26 @@ export const projects: Project[] = [
     shot: 'Streamlit app',
   },
   {
+    name: 'Malware Detection',
+    repo: gh('Malware-Detection'),
+    area: 'AI & LLMs',
+    summary:
+      'Classifies Windows executables as benign or malware by converting the file bytes into images and fine-tuning a ResNet-34 on them.',
+    stack: ['Python', 'fastai', 'ResNet-34', 'Jupyter'],
+    image: '/projects/malware-detection.webp',
+    shot: 'Notebook output: executables rendered as images, with labels',
+  },
+  {
+    name: 'Prompt Analysis Benchmark',
+    repo: gh('Prompt_Analysis'),
+    area: 'AI & LLMs',
+    summary:
+      'A benchmark for judging how well an LLM handles an end-to-end coding task: the prompt, a reference implementation, and a written comparison of two model responses.',
+    stack: ['Python', 'LLM evaluation', 'Prompt design'],
+    image: '/projects/prompt-analysis.webp',
+    shot: 'The benchmark prompt: Prompt.md',
+  },
+  {
     name: 'Test Drive Analytics Dashboard',
     repo: gh('crestwyn-test-drive-analytics-dashboard'),
     area: 'Data',
@@ -145,6 +336,16 @@ export const projects: Project[] = [
     stack: ['Data visualization', 'Analytics'],
     image: '/projects/test-drive-dashboard.webp',
     shot: 'Vehicle popularity page',
+  },
+  {
+    name: 'Sales Performance Dashboard',
+    repo: gh('sales-visualization-dashboard-fix'),
+    area: 'Data',
+    summary:
+      'A regional sales dashboard built in Python from quarterly and monthly CSV data: revenue by region, market share, and revenue against operating cost.',
+    stack: ['Python', 'pandas', 'Matplotlib'],
+    image: '/projects/sales-dashboard.webp',
+    shot: 'The dashboard image the script produces',
   },
 ];
 
