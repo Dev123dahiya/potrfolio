@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0E1A2B"/><text x="32" y="43" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="29" font-weight="800" fill="#7FD1B9" text-anchor="middle" letter-spacing="-1">DK</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D2A2B"/>
+      <stop offset="1" stop-color="#0A0D10"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#t)"/>
+  <path d="M9.4 38.5V17.5H19Q22.4 17.5 25 18.8Q27.6 20.1 29.1 22.4Q30.5 24.8 30.5 28Q30.5 31.2 29.1 33.5Q27.6 35.9 25 37.2Q22.4 38.5 19 38.5ZM14.3 34.5H18.7Q20.8 34.5 22.4 33.7Q23.9 32.9 24.8 31.5Q25.6 30 25.6 28Q25.6 26 24.8 24.5Q23.9 23.1 22.4 22.3Q20.8 21.5 18.7 21.5H14.3Z M34.5 38.5V17.5H44Q47.5 17.5 50.1 18.8Q52.7 20.1 54.1 22.4Q55.6 24.8 55.6 28Q55.6 31.2 54.1 33.5Q52.7 35.9 50.1 37.2Q47.5 38.5 44 38.5ZM39.4 34.5H43.8Q45.9 34.5 47.4 33.7Q49 32.9 49.8 31.5Q50.7 30 50.7 28Q50.7 26 49.8 24.5Q49 23.1 47.4 22.3Q45.9 21.5 43.8 21.5H39.4Z" fill="#FFFFFF"/>
+  <rect x="22" y="45" width="20" height="5" rx="2.5" fill="#7FD1CB"/>
+</svg>
