@@ -2,7 +2,7 @@
 
 Single-page portfolio built with **React, TypeScript, Vite and Tailwind CSS**, with self-hosted fonts (Bricolage Grotesque and IBM Plex).
 
-Live: https://potrfolio-puce.vercel.app
+Live: https://devkumardahiya.is-a.dev
 
 ## Edit the content
 
