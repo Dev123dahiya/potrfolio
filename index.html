@@ -13,8 +13,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dev Kumar Dahiya, Software Developer (Backend and Generative AI)" />
     <meta property="og:description" content="Backend systems and LLM pipelines: projects, experience and research." />
-    <meta property="og:image" content="https://potrfolio-puce.vercel.app/og.png" />
+    <!-- Absolute, and on the site's own domain: a crawler fetching the preview
+         image has no page to resolve a relative path against. -->
+    <meta property="og:image" content="https://devkumardahiya.is-a.dev/og.png" />
+    <meta property="og:url" content="https://devkumardahiya.is-a.dev/" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- The site answers on more than one host; this names the one that counts,
+         so search engines do not treat them as duplicates of each other. -->
+    <link rel="canonical" href="https://devkumardahiya.is-a.dev/" />
   </head>
   <body>
     <script>
