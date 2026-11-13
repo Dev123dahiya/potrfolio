@@ -1,8 +1,10 @@
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import Logos from './components/Logos';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Research from './components/Research';
+import Education from './components/Education';
 import About from './components/About';
 import Contact from './components/Contact';
 
@@ -18,9 +20,11 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <Logos />
         <Projects />
         <Experience />
         <Research />
+        <Education />
         <About />
         <Contact />
       </main>

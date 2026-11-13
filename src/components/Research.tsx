@@ -33,6 +33,7 @@ export default function Research() {
       <div className="wrap grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-6">
           <h2 className="h-section text-white">Research</h2>
+          <img src={publication.publisherLogo} alt="Springer Nature" className="mt-8 h-5 w-auto opacity-90" loading="lazy" />
           <h3 className="mt-8 font-display text-[1.6rem] font-bold leading-snug tracking-[-0.015em] text-white">
             {publication.title}
           </h3>

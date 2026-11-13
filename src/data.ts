@@ -33,6 +33,10 @@ export interface Project {
   area: Area;
   summary: string;
   stack: string[];
+  /** Screenshot in public/projects. */
+  image: string;
+  /** What the screenshot shows, printed on the image frame. */
+  shot: string;
   live?: string;
 }
 
@@ -49,6 +53,8 @@ export const featured = {
     'Runs the application in a real browser as a dry run, and only submits after I confirm',
   ],
   stack: ['FastAPI', 'SQLAlchemy', 'Alembic', 'Claude API', 'Playwright', 'Next.js', 'TypeScript', 'pytest'],
+  image: '/projects/pie-job-agent.webp',
+  shot: 'Dashboard, running locally on a fresh database',
 };
 
 export const projects: Project[] = [
@@ -59,6 +65,8 @@ export const projects: Project[] = [
     summary:
       'Classifies speech as real or AI-generated with a CNN + BiLSTM + attention model, with training, evaluation and FastAPI / Streamlit apps for inference.',
     stack: ['Python', 'TensorFlow', 'librosa', 'FastAPI', 'Streamlit'],
+    image: '/projects/deepfake-audio.webp',
+    shot: 'Streamlit app',
   },
   {
     name: 'OCR Bill Analyzer',
@@ -67,6 +75,8 @@ export const projects: Project[] = [
     summary:
       'Turns PDF bills and invoices into structured JSON: EasyOCR reads the page, then Groq and Gemini LLMs extract the fields, behind a FastAPI API.',
     stack: ['Python', 'FastAPI', 'EasyOCR', 'Gemini', 'Groq'],
+    image: '/projects/ocr-bill-analyzer.webp',
+    shot: 'Upload screen',
   },
   {
     name: 'OrbitX',
@@ -75,6 +85,8 @@ export const projects: Project[] = [
     summary:
       'Batch document pipeline that spots invoices and contracts, extracts typed fields and a summary with an LLM, validates them and writes JSON.',
     stack: ['Python', 'OpenAI API', 'Pydantic', 'PyMuPDF'],
+    image: '/projects/orbitx.webp',
+    shot: 'Real output from a run: output/results.json',
   },
   {
     name: 'LLM Prompt & Response Evaluator',
@@ -83,6 +95,8 @@ export const projects: Project[] = [
     summary:
       'REST API where users submit prompts, attach model responses, get them scored automatically and track the results over time.',
     stack: ['Django REST Framework', 'PostgreSQL', 'JWT', 'NumPy', 'Pandas'],
+    image: '/projects/prompt-evaluator.webp',
+    shot: 'The scoring engine run on a sample answer',
   },
   {
     name: 'BIOMED XPERT CRM',
@@ -91,6 +105,8 @@ export const projects: Project[] = [
     summary:
       'Lead and sales tracker for a biomedical equipment business, with a six-stage pipeline and Excel, CSV and PDF exports.',
     stack: ['TypeScript', 'React', 'Express', 'Prisma', 'Docker'],
+    image: '/projects/biomed-crm.webp',
+    shot: 'Sign-in screen',
   },
   {
     name: 'Leave Request Management',
@@ -98,6 +114,8 @@ export const projects: Project[] = [
     area: 'Backend & full stack',
     summary: 'Full-stack leave requests and approvals with JWT login and role-based access.',
     stack: ['React', 'Express', 'MongoDB', 'JWT'],
+    image: '/projects/leave-management.webp',
+    shot: 'Sign-in screen',
   },
   {
     name: 'Smart Hospital Management',
@@ -106,6 +124,8 @@ export const projects: Project[] = [
     summary:
       'Hospital workflow app with role-based logins for admins, doctors and patients, appointments, prescriptions, reports and emergency alerts.',
     stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
+    image: '/projects/smart-hospital.webp',
+    shot: 'Sign-in screen',
   },
   {
     name: 'Emotion-Based Music Recommender',
@@ -113,6 +133,8 @@ export const projects: Project[] = [
     area: 'AI & LLMs',
     summary: 'Reads your facial emotion from the webcam and recommends songs that match the mood.',
     stack: ['Python', 'TensorFlow', 'OpenCV', 'Streamlit'],
+    image: '/projects/emotion-music.webp',
+    shot: 'Streamlit app',
   },
   {
     name: 'Test Drive Analytics Dashboard',
@@ -121,6 +143,8 @@ export const projects: Project[] = [
     summary:
       'Multi-page BI dashboard covering a year of test drives, consultant performance, satisfaction and purchase conversion for a showroom.',
     stack: ['Data visualization', 'Analytics'],
+    image: '/projects/test-drive-dashboard.webp',
+    shot: 'Vehicle popularity page',
   },
 ];
 
@@ -129,6 +153,8 @@ export const experience = [
     role: 'Software Developer',
     org: 'Ethara AI',
     url: 'https://www.ethara.ai/',
+    logo: '/logos/ethara-white.png',
+    logoOnDark: true,
     place: 'Gurugram',
     start: 'May 2026',
     end: 'Present',
@@ -142,6 +168,8 @@ export const experience = [
     role: 'Associate Software Engineer Intern',
     org: 'MAQ Software',
     url: 'https://maqsoftware.com/',
+    logo: '/logos/maq.png',
+    logoOnDark: false,
     place: 'Noida',
     start: 'Nov 2025',
     end: 'Feb 2026',
@@ -154,7 +182,9 @@ export const experience = [
   {
     role: 'AI Intern',
     org: 'Horizon17',
-    url: 'http://www.horizon17ww.com/',
+    url: 'https://www.horizon17ww.com/',
+    logo: '/logos/horizon17.png',
+    logoOnDark: false,
     place: 'Gurugram',
     start: 'May 2025',
     end: 'Jul 2025',
@@ -173,6 +203,7 @@ export const publication = {
   summary:
     'We trained a CNN + BiLSTM model with attention on MFCC and Mel-spectrogram features to tell real voices from AI-generated ones. It reached 99.33% accuracy on 10,000 audio clips across accents.',
   repo: gh('deepfake-audio-detection'),
+  publisherLogo: '/logos/springer-white.png',
 };
 
 export const skills: { group: string; items: string[] }[] = [
@@ -185,6 +216,10 @@ export const skills: { group: string; items: string[] }[] = [
 export const education = {
   degree: 'B.Tech in Computer Science and Engineering',
   school: 'Amity University, Noida',
+  url: 'https://www.amity.edu/',
+  logo: '/logos/amity.png',
+  photo: '/img/amity-campus.jpg',
+  photoCredit: 'Amity University campus, Noida. Photo: आशीष भटनागर, public domain, via Wikimedia Commons.',
   years: '2022 – 2026',
   grade: 'CGPA 8.60',
   certifications: [
@@ -193,3 +228,12 @@ export const education = {
     'IBM Cybersecurity Fundamentals',
   ],
 };
+
+// Logo strip under the hero: where I've worked, studied and published.
+export const affiliations = [
+  { name: 'Ethara AI', logo: '/logos/ethara-ink.png', height: 26 },
+  { name: 'MAQ Software', logo: '/logos/maq.png', height: 24 },
+  { name: 'Horizon17', logo: '/logos/horizon17.png', height: 40 },
+  { name: 'Amity University', logo: '/logos/amity.png', height: 40 },
+  { name: 'Springer Nature', logo: '/logos/springer.png', height: 17 },
+];
