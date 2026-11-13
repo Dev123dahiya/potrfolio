@@ -1,56 +1,130 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Menu, Moon, Search, Sun, X } from 'lucide-react';
 import { profile } from '../data';
+import { useSite } from '../lib/site';
 
 const links = [
-  { href: '#work', label: 'Work' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#research', label: 'Research' },
-  { href: '#education', label: 'Education' },
-  { href: '#contact', label: 'Contact' },
+  { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'research', label: 'Research' },
+  { id: 'education', label: 'Education' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
 ];
+
+// Which section is under the nav right now, and how far down the page we are.
+function useScrollState() {
+  const [active, setActive] = useState('');
+  const bar = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar.current) bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+      let current = '';
+      for (const { id } of links) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) current = id;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+  return { active, bar };
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const { theme, toggleTheme, setPaletteOpen } = useSite();
+  const { active, bar } = useScrollState();
+  const ThemeIcon = theme === 'dark' ? Sun : Moon;
+  const themeLabel = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
-      <nav className="wrap flex h-16 items-center justify-between" aria-label="Main">
+      <nav className="wrap flex h-16 items-center justify-between gap-4" aria-label="Main">
         <a href="#top" className="font-display text-lg font-bold tracking-[-0.01em]">
           Dev Kumar Dahiya
         </a>
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-[0.95rem] text-muted transition-colors hover:text-ink">
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              aria-current={active === l.id ? 'true' : undefined}
+              className={`rounded-md px-2.5 py-1.5 text-[0.95rem] transition-colors ${
+                active === l.id ? 'bg-surface text-ink shadow-[inset_0_0_0_1px_rgb(var(--line))]' : 'text-muted hover:text-ink'
+              }`}
+            >
               {l.label}
             </a>
           ))}
-          <a href={profile.resumeUrl} className="btn-primary py-2" target="_blank" rel="noreferrer">
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setPaletteOpen(true)}
+            className="inline-flex items-center gap-2 rounded-lg border border-line bg-surface px-2.5 py-1.5 text-[0.9rem] text-muted transition-colors hover:border-ink/40 hover:text-ink"
+            aria-label="Search projects and sections"
+          >
+            <Search size={16} aria-hidden />
+            <span className="hidden sm:inline">Search</span>
+            <span className="kbd hidden md:inline">Ctrl K</span>
+          </button>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface text-muted transition-colors hover:border-ink/40 hover:text-ink"
+          >
+            <ThemeIcon size={17} aria-hidden />
+          </button>
+          <a href={profile.resumeUrl} className="btn-primary hidden py-2 sm:inline-flex" target="_blank" rel="noreferrer">
             Résumé
           </a>
+          <button
+            type="button"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-line bg-surface lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
+          </button>
         </div>
-        <button
-          type="button"
-          className="inline-flex items-center gap-2 rounded-md px-2 py-1.5 text-[0.95rem] md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((o) => !o)}
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-          Menu
-        </button>
       </nav>
       {open && (
-        <div id="mobile-menu" className="wrap flex flex-col gap-1 pb-4 md:hidden">
+        <div id="mobile-menu" className="wrap grid grid-cols-2 gap-1 pb-4 lg:hidden">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-md px-2 py-2 hover:bg-surface" onClick={() => setOpen(false)}>
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              className={`rounded-md px-3 py-2 ${active === l.id ? 'bg-surface font-medium' : 'hover:bg-surface'}`}
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </a>
           ))}
-          <a href={profile.resumeUrl} className="btn-primary mt-2 justify-center" target="_blank" rel="noreferrer">
+          <a href={profile.resumeUrl} className="btn-primary col-span-2 mt-2 justify-center sm:hidden" target="_blank" rel="noreferrer">
             Résumé
           </a>
         </div>
       )}
+      {/* Reading progress */}
+      <div ref={bar} className="absolute inset-x-0 bottom-[-1px] h-0.5 origin-left scale-x-0 bg-signal" aria-hidden />
     </header>
   );
 }
