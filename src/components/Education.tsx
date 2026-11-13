@@ -21,8 +21,8 @@ export default function Education() {
             </figcaption>
           </figure>
           <div className="p-6 sm:p-9 lg:col-span-5">
-            <a href={education.url} target="_blank" rel="noreferrer" className="inline-block">
-              <img src={education.logo} alt={education.school} className="h-14 w-auto" loading="lazy" />
+            <a href={education.url} target="_blank" rel="noreferrer" className="logo-tile inline-grid h-20 px-5" aria-label={`${education.school} website`}>
+              <img src={education.logo} alt="" className="h-12 w-auto" loading="lazy" />
             </a>
             <h3 className="mt-7 font-display text-[1.5rem] font-bold leading-snug tracking-[-0.015em]">{education.degree}</h3>
             <p className="mt-1 text-muted">
