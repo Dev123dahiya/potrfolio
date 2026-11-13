@@ -3,17 +3,25 @@ import { Github } from 'lucide-react';
 import { featured, projects, type Area } from '../data';
 import Shot from './Shot';
 
-const filters: ('All' | Area)[] = ['All', 'AI & LLMs', 'Backend & full stack', 'Data'];
+const filters: ('All' | Area)[] = ['All', 'AI & LLMs', 'Backend & full stack', 'Data', 'Cloud & security'];
+
+// How many cards show before the visitor asks for the rest.
+const FIRST_PAGE = 9;
 
 const areaColor: Record<Area, string> = {
   'AI & LLMs': 'text-signal',
   'Backend & full stack': 'text-cobalt',
   Data: 'text-[#9A5B00]',
+  'Cloud & security': 'text-[#6A45B8]',
 };
 
 export default function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');
-  const shown = filter === 'All' ? projects : projects.filter((p) => p.area === filter);
+  const [expanded, setExpanded] = useState(false);
+  const count = (f: (typeof filters)[number]) => (f === 'All' ? projects.length : projects.filter((p) => p.area === f).length);
+  const matching = filter === 'All' ? projects : projects.filter((p) => p.area === filter);
+  const shown = expanded ? matching : matching.slice(0, FIRST_PAGE);
+  const hidden = matching.length - shown.length;
 
   return (
     <section id="work" className="border-t border-line bg-surface py-20 lg:py-28">
@@ -66,14 +74,17 @@ export default function Projects() {
                 key={f}
                 type="button"
                 aria-pressed={filter === f}
-                onClick={() => setFilter(f)}
+                onClick={() => {
+                  setFilter(f);
+                  setExpanded(false);
+                }}
                 className={`rounded-full border px-3.5 py-1.5 text-[0.9rem] transition-colors ${
                   filter === f
                     ? 'border-ink bg-ink text-white'
                     : 'border-line bg-surface text-muted hover:border-ink/40 hover:text-ink'
                 }`}
               >
-                {f}
+                {f} <span className={filter === f ? 'text-white/70' : 'text-muted/80'}>{count(f)}</span>
               </button>
             ))}
           </div>
@@ -81,7 +92,7 @@ export default function Projects() {
 
         <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((p) => (
-            <li key={p.name} className="group flex flex-col">
+            <li key={p.name} className="group flex min-w-0 flex-col">
               <a href={p.repo} target="_blank" rel="noreferrer" className="block rounded-xl" aria-label={`${p.name} on GitHub`}>
                 <Shot
                   src={p.image}
@@ -101,6 +112,19 @@ export default function Projects() {
             </li>
           ))}
         </ul>
+
+        {(hidden > 0 || expanded) && matching.length > FIRST_PAGE && (
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              aria-expanded={expanded}
+              onClick={() => setExpanded((e) => !e)}
+              className="btn-quiet"
+            >
+              {expanded ? 'Show fewer projects' : `Show ${hidden} more ${hidden === 1 ? 'project' : 'projects'}`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
