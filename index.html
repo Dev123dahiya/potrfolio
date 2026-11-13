@@ -9,7 +9,7 @@
       name="description"
       content="Dev Kumar Dahiya builds backend systems and LLM pipelines. Software Developer at Ethara AI, ex-MAQ Software, Springer-published deepfake audio research."
     />
-    <meta name="theme-color" content="#F3F5F8" />
+    <meta name="theme-color" content="#FFFFFF" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dev Kumar Dahiya, Software Developer (Backend and Generative AI)" />
     <meta property="og:description" content="Backend systems and LLM pipelines: projects, experience and research." />
@@ -21,9 +21,7 @@
       (function () {
         var theme = null;
         try { theme = localStorage.getItem('theme'); } catch (e) {}
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
+        if (theme !== 'dark') theme = 'light';
         document.documentElement.dataset.theme = theme;
       })();
     </script>
