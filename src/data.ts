@@ -5,6 +5,10 @@
 export const GITHUB_USERNAME = 'Dev123dahiya';
 const gh = (repo: string) => `https://github.com/${GITHUB_USERNAME}/${repo}`;
 
+// Files in public/. Prefixing with Vite's base keeps them working whether the
+// site is served from a domain root or from a sub-path such as /potrfolio/.
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const profile = {
   name: 'Dev Kumar Dahiya',
   role: 'Software Developer at Ethara AI',
@@ -13,7 +17,7 @@ export const profile = {
   intro:
     'Right now that means REST APIs that bring LLM features into live products at Ethara AI. Before that I built data pipelines on Microsoft Fabric at MAQ Software, a Generative AI invoice reader at Horizon17, and co-authored a Springer paper on spotting AI-generated voices.',
   email: 'devdahiya4002@gmail.com',
-  resumeUrl: '/Dev_Kumar_Dahiya_Resume.pdf',
+  resumeUrl: asset('Dev_Kumar_Dahiya_Resume.pdf'),
   github: `https://github.com/${GITHUB_USERNAME}`,
   linkedin: 'https://www.linkedin.com/in/devkumardahiya',
   openTo: 'Open to Software Engineer, AI/ML Engineer, Backend and Data Engineer roles, on-site, hybrid or remote.',
@@ -47,7 +51,7 @@ export const featured = {
     'Runs the application in a real browser as a dry run, and only submits after I confirm',
   ],
   stack: ['FastAPI', 'SQLAlchemy', 'Alembic', 'Claude API', 'Playwright', 'Next.js', 'TypeScript', 'pytest'],
-  image: '/projects/pie-job-agent.webp',
+  image: asset('projects/pie-job-agent.webp'),
   shot: 'Dashboard, running locally on a fresh database',
 };
 
@@ -60,7 +64,7 @@ export const projects: Project[] = [
     summary:
       'A SQL engine in pure Python: lexer, parser, a planner that pushes filters down and picks indexes and join algorithms, and an executor. Its answers are checked against SQLite.',
     stack: ['Python', 'Query planning', 'Hash joins', 'Indexes', 'SQLite (as the reference)'],
-    image: '/projects/mini-sql-engine.webp',
+    image: asset('projects/mini-sql-engine.webp'),
     shot: 'Real output: python -m minisql',
   },
   {
@@ -70,7 +74,7 @@ export const projects: Project[] = [
     summary:
       'Question answering over documents, built from its parts: heading-aware chunking, keyword and vector retrieval fused together, answers that must cite sources, and an evaluation against labelled questions.',
     stack: ['Python', 'NumPy', 'BM25', 'Vector search', 'Retrieval evaluation'],
-    image: '/projects/rag-knowledge-assistant.webp',
+    image: asset('projects/rag-knowledge-assistant.webp'),
     shot: 'Real output: python -m ragkit eval',
   },
   {
@@ -80,7 +84,7 @@ export const projects: Project[] = [
     summary:
       'A durable background-job queue on SQLite that several worker processes share safely. Handles crashed workers, retries with backoff, poison jobs and duplicate submissions.',
     stack: ['Python', 'SQLite', 'Concurrent workers', 'Retries', 'Idempotency'],
-    image: '/projects/distributed-job-queue.webp',
+    image: asset('projects/distributed-job-queue.webp'),
     shot: 'Real output: python -m jobqueue demo',
   },
   {
@@ -90,7 +94,7 @@ export const projects: Project[] = [
     summary:
       'The core of a login system using only the Python standard library: scrypt passwords, signed access tokens, rotating refresh tokens that detect theft, two-factor codes, lockout and role-based permissions.',
     stack: ['Python', 'JWT', 'TOTP (RFC 6238)', 'scrypt', 'RBAC'],
-    image: '/projects/auth-service.webp',
+    image: asset('projects/auth-service.webp'),
     shot: 'Real output: python -m authsvc',
   },
   {
@@ -100,7 +104,7 @@ export const projects: Project[] = [
     summary:
       'Classifies speech as real or AI-generated with a CNN + BiLSTM + attention model, with training, evaluation and FastAPI / Streamlit apps for inference.',
     stack: ['Python', 'TensorFlow', 'librosa', 'FastAPI', 'Streamlit'],
-    image: '/projects/deepfake-audio.webp',
+    image: asset('projects/deepfake-audio.webp'),
     shot: 'Streamlit app',
   },
   {
@@ -110,7 +114,7 @@ export const projects: Project[] = [
     summary:
       'One front door for several LLM providers: fallback with circuit breakers, response caching, personal-data masking before a prompt leaves, prompt-injection screening and per-team budgets. Demo runs on scripted providers.',
     stack: ['Python', 'Circuit breaker', 'Caching', 'PII redaction', 'Cost tracking'],
-    image: '/projects/llm-gateway.webp',
+    image: asset('projects/llm-gateway.webp'),
     shot: 'Real output: python -m gateway',
   },
   {
@@ -120,7 +124,7 @@ export const projects: Project[] = [
     summary:
       'An incremental data pipeline on DuckDB: raw files land untouched, SQL validates and models them, bad rows go to quarantine, and nothing reaches the reporting tables unless data-quality checks pass.',
     stack: ['Python', 'DuckDB', 'SQL', 'Slowly changing dimensions', 'Data quality checks'],
-    image: '/projects/duckdb-elt-pipeline.webp',
+    image: asset('projects/duckdb-elt-pipeline.webp'),
     shot: 'Real output: python -m eltpipe demo',
   },
   {
@@ -130,7 +134,7 @@ export const projects: Project[] = [
     summary:
       'A WebSocket chat server: rooms, presence, typing indicators, replay of missed messages after a dropped connection, rate limits, and a pub/sub layer so several server processes act as one.',
     stack: ['TypeScript', 'Node.js', 'WebSockets', 'Pub/sub'],
-    image: '/projects/realtime-chat-server.webp',
+    image: asset('projects/realtime-chat-server.webp'),
     shot: 'Real output: npm test',
   },
   {
@@ -140,7 +144,7 @@ export const projects: Project[] = [
     summary:
       'Lead and sales tracker for a biomedical equipment business, with a six-stage pipeline and Excel, CSV and PDF exports.',
     stack: ['TypeScript', 'React', 'Express', 'Prisma', 'Docker'],
-    image: '/projects/biomed-crm.webp',
+    image: asset('projects/biomed-crm.webp'),
     shot: 'Sign-in screen',
   },
   {
@@ -150,7 +154,7 @@ export const projects: Project[] = [
     summary:
       'Three services and the Helm chart that runs them: health probes, graceful shutdown, locked-down pods, autoscaling and network policies. CI installs it on a real cluster and checks that restarts drop no requests.',
     stack: ['Kubernetes', 'Helm', 'Docker', 'GitHub Actions', 'Python'],
-    image: '/projects/k8s-microservices-deploy.webp',
+    image: asset('projects/k8s-microservices-deploy.webp'),
     shot: 'Real output from the CI run on a live cluster',
   },
   {
@@ -160,7 +164,7 @@ export const projects: Project[] = [
     summary:
       'Metrics in the Prometheus format, distributed traces with W3C trace context, structured logs tied to traces, and error-budget alerts that page only when two time windows agree. Demo is a simulated incident.',
     stack: ['Python', 'Prometheus format', 'Distributed tracing', 'SLO alerting'],
-    image: '/projects/observability-kit.webp',
+    image: asset('projects/observability-kit.webp'),
     shot: 'Real output: python -m obskit',
   },
   {
@@ -170,7 +174,7 @@ export const projects: Project[] = [
     summary:
       'Finds credentials committed to a codebase and dependencies with known security holes. Supports a baseline for old findings, output for GitHub code scanning, and fails CI on anything new.',
     stack: ['Python', 'Entropy detection', 'SARIF', 'CI gating'],
-    image: '/projects/secret-scanner.webp',
+    image: asset('projects/secret-scanner.webp'),
     shot: 'Real output: python -m secretscan demo',
   },
   {
@@ -180,7 +184,7 @@ export const projects: Project[] = [
     summary:
       'Checks Dockerfiles and Kubernetes manifests for risky settings such as running as root, baked-in secrets and missing limits. 18 rules with file, line and reason, and a CI exit code.',
     stack: ['Python', 'Docker', 'Kubernetes', 'YAML', 'Policy as code'],
-    image: '/projects/infra-policy-linter.webp',
+    image: asset('projects/infra-policy-linter.webp'),
     shot: 'Real output: python -m policylint examples/bad',
   },
   {
@@ -190,7 +194,7 @@ export const projects: Project[] = [
     summary:
       'The HNSW index used inside vector databases, written from scratch, with an exact baseline and a benchmark of accuracy against work done, including the case where it breaks down.',
     stack: ['Python', 'NumPy', 'HNSW', 'Benchmarking'],
-    image: '/projects/vector-search-engine.webp',
+    image: asset('projects/vector-search-engine.webp'),
     shot: 'Real output: python -m vecsearch',
   },
   {
@@ -200,7 +204,7 @@ export const projects: Project[] = [
     summary:
       'Turns PDF bills and invoices into structured JSON: EasyOCR reads the page, then Groq and Gemini LLMs extract the fields, behind a FastAPI API.',
     stack: ['Python', 'FastAPI', 'EasyOCR', 'Gemini', 'Groq'],
-    image: '/projects/ocr-bill-analyzer.webp',
+    image: asset('projects/ocr-bill-analyzer.webp'),
     shot: 'Upload screen',
   },
   {
@@ -210,7 +214,7 @@ export const projects: Project[] = [
     summary:
       'A double-entry accounting ledger where an append-only event log is the only source of truth. Balances are a cache that can be deleted and rebuilt from the log.',
     stack: ['Python', 'SQLite', 'Event sourcing', 'Double-entry accounting'],
-    image: '/projects/event-sourced-ledger.webp',
+    image: asset('projects/event-sourced-ledger.webp'),
     shot: 'Real output: python -m ledger',
   },
   {
@@ -220,7 +224,7 @@ export const projects: Project[] = [
     summary:
       'What comes after model.fit: input validation, leak-free training, calibrated probabilities, a decision threshold chosen from business costs, a model registry with a promotion gate, and drift monitoring. Uses synthetic data.',
     stack: ['Python', 'scikit-learn', 'pandas', 'Model registry', 'Drift monitoring'],
-    image: '/projects/churn-ml-pipeline.webp',
+    image: asset('projects/churn-ml-pipeline.webp'),
     shot: 'Real output: python -m churnml',
   },
   {
@@ -230,7 +234,7 @@ export const projects: Project[] = [
     summary:
       'A strict runtime for tool-using LLM agents. It validates every tool call, blocks actions that need approval, caps the number of steps, records each step and can replay a run exactly. Demo runs on a scripted model.',
     stack: ['Python', 'Tool calling', 'Guardrails', 'Replayable traces'],
-    image: '/projects/agent-tool-runtime.webp',
+    image: asset('projects/agent-tool-runtime.webp'),
     shot: 'Real output: python -m agentrt',
   },
   {
@@ -240,7 +244,7 @@ export const projects: Project[] = [
     summary:
       'Evaluates LLM outputs with statistics attached: confidence intervals on every score, a significance test between two versions, and a regression gate that fails CI only when a drop is unlikely to be noise.',
     stack: ['Python', 'Bootstrap intervals', 'McNemar test', 'CI gating'],
-    image: '/projects/llm-eval-harness.webp',
+    image: asset('projects/llm-eval-harness.webp'),
     shot: 'Real output: python -m evalkit demo',
   },
   {
@@ -250,7 +254,7 @@ export const projects: Project[] = [
     summary:
       'Event-time aggregation for streams that arrive out of order: tumbling, sliding and session windows, watermarks, corrections for late data, and checkpoints that resume without double-counting.',
     stack: ['Python', 'Stream processing', 'Watermarks', 'Checkpointing'],
-    image: '/projects/stream-windowing-engine.webp',
+    image: asset('projects/stream-windowing-engine.webp'),
     shot: 'Real output: python -m streamwin',
   },
   {
@@ -260,7 +264,7 @@ export const projects: Project[] = [
     summary:
       'The system-design interview answer, actually built and measured: unique short codes, sharding with consistent hashing, a read cache, and tests for each part.',
     stack: ['Python', 'Consistent hashing', 'LRU cache', 'Sharding'],
-    image: '/projects/url-shortener-service.webp',
+    image: asset('projects/url-shortener-service.webp'),
     shot: 'Real output: python -m shortener',
   },
   {
@@ -270,7 +274,7 @@ export const projects: Project[] = [
     summary:
       'Four rate-limiting algorithms behind one interface, middleware for FastAPI and Starlette, and a benchmark against a client that bursts at window edges to show which ones let extra traffic through.',
     stack: ['Python', 'ASGI middleware', 'Token bucket', 'Sliding window'],
-    image: '/projects/rate-limiter-lab.webp',
+    image: asset('projects/rate-limiter-lab.webp'),
     shot: 'Real output: python -m bench.run',
   },
   {
@@ -280,7 +284,7 @@ export const projects: Project[] = [
     summary:
       'Three recommenders for click and purchase data written from scratch, with an offline evaluation that holds out each user\'s last interaction and tunes on a separate validation split. Uses synthetic data.',
     stack: ['Python', 'NumPy', 'Matrix factorisation (ALS)', 'Item kNN', 'Ranking metrics'],
-    image: '/projects/recsys-engine.webp',
+    image: asset('projects/recsys-engine.webp'),
     shot: 'Real output: python -m recsys',
   },
   {
@@ -290,7 +294,7 @@ export const projects: Project[] = [
     summary:
       'Batch document pipeline that spots invoices and contracts, extracts typed fields and a summary with an LLM, validates them and writes JSON.',
     stack: ['Python', 'OpenAI API', 'Pydantic', 'PyMuPDF'],
-    image: '/projects/orbitx.webp',
+    image: asset('projects/orbitx.webp'),
     shot: 'Real output from a run: output/results.json',
   },
   {
@@ -300,7 +304,7 @@ export const projects: Project[] = [
     summary:
       'REST API where users submit prompts, attach model responses, get them scored automatically and track the results over time.',
     stack: ['Django REST Framework', 'PostgreSQL', 'JWT', 'NumPy', 'Pandas'],
-    image: '/projects/prompt-evaluator.webp',
+    image: asset('projects/prompt-evaluator.webp'),
     shot: 'The scoring engine run on a sample answer',
   },
   {
@@ -310,7 +314,7 @@ export const projects: Project[] = [
     summary:
       'Hospital workflow app with role-based logins for admins, doctors and patients, appointments, prescriptions, reports and emergency alerts.',
     stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
-    image: '/projects/smart-hospital.webp',
+    image: asset('projects/smart-hospital.webp'),
     shot: 'Sign-in screen',
   },
   {
@@ -319,7 +323,7 @@ export const projects: Project[] = [
     area: 'Backend & full stack',
     summary: 'Full-stack leave requests and approvals with JWT login and role-based access.',
     stack: ['React', 'Express', 'MongoDB', 'JWT'],
-    image: '/projects/leave-management.webp',
+    image: asset('projects/leave-management.webp'),
     shot: 'Sign-in screen',
   },
   {
@@ -329,7 +333,7 @@ export const projects: Project[] = [
     summary:
       'Full-stack task manager: admins create projects and assign work, members update their own tasks, with a dashboard of totals, overdue items and filters.',
     stack: ['React', 'Tailwind CSS', 'Express', 'MongoDB', 'JWT'],
-    image: '/projects/team-task-manager.webp',
+    image: asset('projects/team-task-manager.webp'),
     shot: 'Sign-in screen',
   },
   {
@@ -338,7 +342,7 @@ export const projects: Project[] = [
     area: 'AI & LLMs',
     summary: 'Reads your facial emotion from the webcam and recommends songs that match the mood.',
     stack: ['Python', 'TensorFlow', 'OpenCV', 'Streamlit'],
-    image: '/projects/emotion-music.webp',
+    image: asset('projects/emotion-music.webp'),
     shot: 'Streamlit app',
   },
   {
@@ -348,7 +352,7 @@ export const projects: Project[] = [
     summary:
       'Classifies Windows executables as benign or malware by converting the file bytes into images and fine-tuning a ResNet-34 on them.',
     stack: ['Python', 'fastai', 'ResNet-34', 'Jupyter'],
-    image: '/projects/malware-detection.webp',
+    image: asset('projects/malware-detection.webp'),
     shot: 'Notebook output: executables rendered as images, with labels',
   },
   {
@@ -358,7 +362,7 @@ export const projects: Project[] = [
     summary:
       'A benchmark for judging how well an LLM handles an end-to-end coding task: the prompt, a reference implementation, and a written comparison of two model responses.',
     stack: ['Python', 'LLM evaluation', 'Prompt design'],
-    image: '/projects/prompt-analysis.webp',
+    image: asset('projects/prompt-analysis.webp'),
     shot: 'The benchmark prompt: Prompt.md',
   },
   {
@@ -368,7 +372,7 @@ export const projects: Project[] = [
     summary:
       'Multi-page BI dashboard covering a year of test drives, consultant performance, satisfaction and purchase conversion for a showroom.',
     stack: ['Data visualization', 'Analytics'],
-    image: '/projects/test-drive-dashboard.webp',
+    image: asset('projects/test-drive-dashboard.webp'),
     shot: 'Vehicle popularity page',
   },
   {
@@ -378,7 +382,7 @@ export const projects: Project[] = [
     summary:
       'A regional sales dashboard built in Python from quarterly and monthly CSV data: revenue by region, market share, and revenue against operating cost.',
     stack: ['Python', 'pandas', 'Matplotlib'],
-    image: '/projects/sales-dashboard.webp',
+    image: asset('projects/sales-dashboard.webp'),
     shot: 'The dashboard image the script produces',
   },
 ];
@@ -388,7 +392,7 @@ export const experience = [
     role: 'Software Developer',
     org: 'Ethara AI',
     url: 'https://www.ethara.ai/',
-    logo: '/logos/ethara-white.png',
+    logo: asset('logos/ethara-white.png'),
     logoOnDark: true,
     place: 'Gurugram',
     start: 'May 2026',
@@ -403,7 +407,7 @@ export const experience = [
     role: 'Associate Software Engineer Intern',
     org: 'MAQ Software',
     url: 'https://maqsoftware.com/',
-    logo: '/logos/maq.png',
+    logo: asset('logos/maq.png'),
     logoOnDark: false,
     place: 'Noida',
     start: 'Nov 2025',
@@ -418,7 +422,7 @@ export const experience = [
     role: 'AI Intern',
     org: 'Horizon17',
     url: 'https://www.horizon17ww.com/',
-    logo: '/logos/horizon17.png',
+    logo: asset('logos/horizon17.png'),
     logoOnDark: false,
     place: 'Gurugram',
     start: 'May 2025',
@@ -438,7 +442,7 @@ export const publication = {
   summary:
     'We trained a CNN + BiLSTM model with attention on MFCC and Mel-spectrogram features to tell real voices from AI-generated ones. It reached 99.33% accuracy on 10,000 audio clips across accents.',
   repo: gh('deepfake-audio-detection'),
-  publisherLogo: '/logos/springer-white.png',
+  publisherLogo: asset('logos/springer-white.png'),
 };
 
 // Skills whose name differs from the word used in project tech lists.
@@ -462,8 +466,8 @@ export const education = {
   degree: 'B.Tech in Computer Science and Engineering',
   school: 'Amity University, Noida',
   url: 'https://www.amity.edu/',
-  logo: '/logos/amity.png',
-  photo: '/img/amity-campus.jpg',
+  logo: asset('logos/amity.png'),
+  photo: asset('img/amity-campus.jpg'),
   photoCredit: 'Amity University campus, Noida. Photo: आशीष भटनागर, public domain, via Wikimedia Commons.',
   years: '2022 – 2026',
   grade: 'CGPA 8.60',
@@ -476,9 +480,9 @@ export const education = {
 
 // Logo strip under the hero: where I've worked, studied and published.
 export const affiliations = [
-  { name: 'Ethara AI', logo: '/logos/ethara-ink.png', height: 26, section: 'experience', sectionLabel: 'Experience' },
-  { name: 'MAQ Software', logo: '/logos/maq.png', height: 24, section: 'experience', sectionLabel: 'Experience' },
-  { name: 'Horizon17', logo: '/logos/horizon17.png', height: 40, section: 'experience', sectionLabel: 'Experience' },
-  { name: 'Amity University', logo: '/logos/amity.png', height: 40, section: 'education', sectionLabel: 'Education' },
-  { name: 'Springer Nature', logo: '/logos/springer.png', height: 17, section: 'research', sectionLabel: 'Research' },
+  { name: 'Ethara AI', logo: asset('logos/ethara-ink.png'), height: 26, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'MAQ Software', logo: asset('logos/maq.png'), height: 24, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'Horizon17', logo: asset('logos/horizon17.png'), height: 40, section: 'experience', sectionLabel: 'Experience' },
+  { name: 'Amity University', logo: asset('logos/amity.png'), height: 40, section: 'education', sectionLabel: 'Education' },
+  { name: 'Springer Nature', logo: asset('logos/springer.png'), height: 17, section: 'research', sectionLabel: 'Research' },
 ];
