@@ -1,164 +1,93 @@
-import { useEffect, useState } from 'react';
-import { Github, ExternalLink, Star, GitFork, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
-import { Section, Reveal } from './ui';
-import Modal from './Modal';
-import { Cover, Tilt } from './bits';
-import { featured, GITHUB_USERNAME, profile, repoImage } from '../data';
+import { useState } from 'react';
+import { Github } from 'lucide-react';
+import { featured, projects, type Area } from '../data';
 
-interface Repo {
-  id: number; name: string; html_url: string; homepage: string | null;
-  description: string | null; language: string | null;
-  stargazers_count: number; forks_count: number; fork: boolean; topics?: string[];
-}
-
-const FEATURED_REPOS = new Set(featured.map((f) => f.repo).filter(Boolean) as string[]);
-
-const INITIAL_REPOS = 6;
+const filters: ('All' | Area)[] = ['All', 'AI & LLMs', 'Backend & full stack', 'Data'];
 
 export default function Projects() {
-  const [repos, setRepos] = useState<Repo[] | null>(null);
-  const [error, setError] = useState(false);
-  const [showAll, setShowAll] = useState(false);
-  const [selected, setSelected] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`)
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((data: Repo[]) =>
-        setRepos(
-          data
-            .filter((r) => !r.fork && !FEATURED_REPOS.has(r.name))
-            .sort((a, b) => b.stargazers_count - a.stargazers_count || b.id - a.id),
-        ),
-      )
-      .catch(() => setError(true));
-  }, []);
+  const [filter, setFilter] = useState<(typeof filters)[number]>('All');
+  const shown = filter === 'All' ? projects : projects.filter((p) => p.area === filter);
 
   return (
-    <Section id="projects" kicker="Straight from my GitHub" title="Projects">
-      {/* curated flagship projects with generated covers (upgrade to GitHub preview when the repo exists) */}
-      <div className="grid gap-5 md:grid-cols-2">
-        {featured.map((p, i) => (
-          <Reveal key={p.name} delay={(i % 2) * 0.06}>
-            <Tilt>
-              <article onClick={() => setSelected(i)} role="button" tabIndex={0}
-                className="card group cursor-pointer flex h-full flex-col overflow-hidden p-4 transition hover:border-accent/60 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-accent/30">
-                <Cover name={p.name} image={p.image} fallback={p.cover} preview={p.repo ? repoImage(p.repo) : undefined} />
-                <div className="mt-4 flex items-start justify-between gap-3">
-                  <h3 className="font-display text-lg font-semibold text-ink">{p.name}</h3>
-                  <span className="chip gap-1 whitespace-nowrap text-accent"><Sparkles size={12} /> Featured</span>
-                </div>
-                <p className="mt-1.5 flex-1 text-sm text-muted">{p.blurb}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => <span key={t} className="chip">{t}</span>)}
-                </div>
-                <div className="mt-4 flex items-center gap-4 text-sm">
-                  {p.github && (
-                    <a href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
-                      <Github size={16} /> Code
-                    </a>
-                  )}
-                  {p.live && (
-                    <a href={p.live} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="inline-flex items-center gap-1.5 text-muted hover:text-accent">
-                      <ExternalLink size={16} /> Live
-                    </a>
-                  )}
-                </div>
-              </article>
-            </Tilt>
-          </Reveal>
-        ))}
-      </div>
+    <section id="work" className="border-t border-line bg-surface py-20 lg:py-28">
+      <div className="wrap">
+        <h2 className="h-section">Selected work</h2>
 
-      <Modal open={selected !== null} onClose={() => setSelected(null)} title={selected !== null ? featured[selected].name : undefined}>
-        {selected !== null && (
-          <div>
-            <img src={featured[selected].image} alt={featured[selected].name} className="mb-4 w-full rounded-lg object-cover" />
-            <h4 className="mb-2 font-semibold">Problem</h4>
-            <p className="mb-3 text-sm text-muted">{featured[selected].blurb}</p>
-            <h4 className="mb-2 font-semibold">Tech Stack</h4>
-            <div className="mb-3 flex flex-wrap gap-2">{featured[selected].tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>
-            <h4 className="mb-2 font-semibold">Highlights</h4>
-            <ul className="mb-3 list-disc pl-5 text-sm text-muted">
-              <li>Architecture and deployment details available on the repo.</li>
-              <li>Performance-focused implementation with production-ready patterns.</li>
+        {/* Featured project */}
+        <article className="mt-10 grid gap-10 rounded-2xl border border-line bg-paper p-6 sm:p-9 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <h3 className="font-display text-[1.75rem] font-bold leading-tight tracking-[-0.02em] sm:text-[2rem]">
+              {featured.name}
+            </h3>
+            <p className="mt-4 text-[1.05rem] leading-relaxed text-muted">{featured.summary}</p>
+            <ul className="mt-6 flex flex-wrap gap-1.5" aria-label="Built with">
+              {featured.stack.map((s) => (
+                <li key={s} className="tag bg-surface">
+                  {s}
+                </li>
+              ))}
             </ul>
-          </div>
-        )}
-      </Modal>
-
-      {/* everything else, pulled live from GitHub with real preview images */}
-      <div id="github" className="mt-16">
-        <Reveal>
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <div className="mb-2 font-mono text-xs uppercase tracking-widest text-accent">Live from GitHub</div>
-              <h3 className="section-title">More repositories</h3>
-            </div>
-            <a href={profile.socials.github} target="_blank" rel="noreferrer"
-               className="inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-sm text-muted hover:border-accent hover:text-accent">
-              <Github size={16} /> @{GITHUB_USERNAME}
+            <a href={featured.repo} className="btn-quiet mt-7" target="_blank" rel="noreferrer">
+              <Github size={17} aria-hidden /> View the code
             </a>
           </div>
-        </Reveal>
-
-        {error && (
-          <p className="text-sm text-muted">Couldn’t load live repositories right now. Visit{' '}
-            <a href={profile.socials.github} className="text-accent" target="_blank" rel="noreferrer">GitHub</a> directly.</p>
-        )}
-
-        {!error && !repos && (
-          <div className="grid gap-5 md:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, i) => <div key={i} className="card h-56 animate-pulse bg-white/5" />)}
-          </div>
-        )}
-
-        {repos && repos.length > 0 && (
-          <>
-            <div className="grid gap-5 md:grid-cols-3">
-              {(showAll ? repos : repos.slice(0, INITIAL_REPOS)).map((r, i) => (
-                <Reveal key={r.id} delay={(i % 3) * 0.05}>
-                  <a href={r.html_url} target="_blank" rel="noreferrer"
-                     className="card group flex h-full flex-col overflow-hidden transition hover:border-accent/60 hover:shadow-glow">
-                    <img src={repoImage(r.name)} alt={r.name} loading="lazy"
-                         className="h-36 w-full border-b border-line object-cover" />
-                    <div className="flex flex-1 flex-col p-4">
-                      <div className="mb-1 flex items-center gap-2 text-ink">
-                        <Github size={16} className="text-accent" />
-                        <span className="truncate font-semibold">{r.name}</span>
-                      </div>
-                      <p className="mb-3 flex-1 text-xs text-muted line-clamp-2">{r.description || 'No description provided.'}</p>
-                      <div className="flex items-center gap-4 text-xs text-muted">
-                        {r.language && <span>{r.language}</span>}
-                        <span className="inline-flex items-center gap-1"><Star size={12} /> {r.stargazers_count}</span>
-                        <span className="inline-flex items-center gap-1"><GitFork size={12} /> {r.forks_count}</span>
-                      </div>
-                    </div>
-                  </a>
-                </Reveal>
+          <div className="lg:col-span-6">
+            <p className="font-semibold">How it works</p>
+            <ol className="mt-4 space-y-4">
+              {featured.steps.map((step, i) => (
+                <li key={step} className="grid grid-cols-[2rem_1fr] items-baseline gap-3">
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-signalSoft text-[0.85rem] font-semibold text-signal">
+                    {i + 1}
+                  </span>
+                  <span className="leading-snug">{step}</span>
+                </li>
               ))}
-            </div>
+            </ol>
+          </div>
+        </article>
 
-            {repos.length > INITIAL_REPOS && (
-              <div className="mt-8 flex justify-center">
-                <button
-                  onClick={() => setShowAll((v) => !v)}
-                  className="inline-flex items-center gap-2 rounded-full border border-line bg-white/5 px-6 py-2.5 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent">
-                  {showAll ? (
-                    <>Show less <ChevronUp size={16} /></>
-                  ) : (
-                    <>View more ({repos.length - INITIAL_REPOS}) <ChevronDown size={16} /></>
-                  )}
-                </button>
+        {/* Filter + list */}
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-4">
+          <h3 className="font-display text-xl font-bold">More projects</h3>
+          <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter projects">
+            {filters.map((f) => (
+              <button
+                key={f}
+                type="button"
+                aria-pressed={filter === f}
+                onClick={() => setFilter(f)}
+                className={`rounded-full border px-3.5 py-1.5 text-[0.9rem] transition-colors ${
+                  filter === f
+                    ? 'border-ink bg-ink text-white'
+                    : 'border-line bg-surface text-muted hover:border-ink/40 hover:text-ink'
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <ul className="mt-6 divide-y divide-line border-y border-line">
+          {shown.map((p) => (
+            <li key={p.name} className="group grid gap-2 py-6 md:grid-cols-12 md:gap-8">
+              <div className="md:col-span-4">
+                <a
+                  href={p.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-[1.2rem] font-bold leading-snug tracking-[-0.01em] decoration-signal/40 underline-offset-4 group-hover:underline"
+                >
+                  {p.name}
+                </a>
+                <p className="mt-1 text-[0.85rem] text-signal">{p.area}</p>
               </div>
-            )}
-          </>
-        )}
-
-        {repos && repos.length === 0 && (
-          <p className="text-sm text-muted">Your featured projects above are the highlights - more repositories will appear here as you push them to GitHub.</p>
-        )}
+              <p className="leading-relaxed text-muted md:col-span-5">{p.summary}</p>
+              <p className="text-[0.9rem] leading-relaxed text-ink/80 md:col-span-3">{p.stack.join(', ')}</p>
+            </li>
+          ))}
+        </ul>
       </div>
-    </Section>
+    </section>
   );
 }

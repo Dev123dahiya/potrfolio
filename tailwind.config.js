@@ -1,28 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+        display: ['"Bricolage Grotesque Variable"', '"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        base: '#0B0F1A',
-        panel: '#111726',
-        line: '#1E2637',
-        accent: '#5B8DEF',
-        accent2: '#7C5CFC',
-        ink: '#E6EAF2',
-        muted: '#93A0B5',
+        paper: '#F3F5F8',
+        surface: '#FFFFFF',
+        ink: '#0E1A2B',
+        muted: '#53647B',
+        line: '#D9E0E8',
+        signal: '#0B7F72',
+        signalSoft: '#DDF1EE',
+        cobalt: '#2B55D6',
+        night: '#0B1526',
+        nightLine: '#1D2B44',
       },
-      boxShadow: { glow: '0 0 60px -15px rgba(91,141,239,0.45)' },
-      keyframes: {
-        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-      },
-      animation: { float: 'float 6s ease-in-out infinite' },
+      maxWidth: { page: '72rem' },
     },
   },
   plugins: [],
