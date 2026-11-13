@@ -8,6 +8,8 @@ import Education from './components/Education';
 import About from './components/About';
 import Contact from './components/Contact';
 import Palette from './components/Palette';
+import Band from './components/Band';
+import { profile } from './data';
 import { SiteProvider } from './lib/site';
 
 export default function App() {
@@ -25,6 +27,15 @@ export default function App() {
         <Hero />
         <Logos />
         <Projects />
+        <Band
+          action={
+            <a href="#contact" className="btn-outline-light">
+              Get in touch
+            </a>
+          }
+        >
+          {profile.openTo}
+        </Band>
         <Experience />
         <Research />
         <Education />
