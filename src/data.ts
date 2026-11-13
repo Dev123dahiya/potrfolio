@@ -1,216 +1,195 @@
 // ---------------------------------------------------------------------------
-// EDIT THIS FILE to update your portfolio content. Everything the site shows
-// (except the live GitHub feed) comes from here.
+// Everything the site says lives in this file. Edit it to update the portfolio.
 // ---------------------------------------------------------------------------
 
-export const GITHUB_USERNAME = "Dev123dahiya";
-
-// Company/school logos load from a logo service by domain, with a monogram
-// fallback if the logo can't be fetched.
-export const logoFor = (domain: string) => `https://logo.clearbit.com/${domain}`;
-// A repo's GitHub social-preview image (real screenshot-style card from GitHub).
-export const repoImage = (repo: string) =>
-  `https://opengraph.githubassets.com/main/${GITHUB_USERNAME}/${repo}`;
+export const GITHUB_USERNAME = 'Dev123dahiya';
+const gh = (repo: string) => `https://github.com/${GITHUB_USERNAME}/${repo}`;
 
 export const profile = {
-  name: "Dev Kumar Dahiya",
-  title: "Full-Stack Software Developer & Applied ML",
-  tagline:
-    "I build full-stack web applications and applied machine-learning systems end to end, from API design and real-time backends to deep-learning pipelines.",
-  location: "Gurugram, India",
-  // Your photo from Google Drive. The site tries these in order until one loads.
-  // If you'd rather host it locally, drop the file at public/profile.jpg and put
-  // "/profile.jpg" first in this list.
+  name: 'Dev Kumar Dahiya',
+  role: 'Software Developer at Ethara AI',
+  location: 'Gurugram, India',
+  headline: 'I build the backend systems and LLM pipelines behind real products.',
+  intro:
+    'Right now that means REST APIs that bring LLM features into live products at Ethara AI. Before that I built data pipelines on Microsoft Fabric at MAQ Software, a Generative AI invoice reader at Horizon17, and co-authored a Springer paper on spotting AI-generated voices.',
+  // The photo loads from Google Drive. To host it yourself, put the file at
+  // public/profile.jpg and add '/profile.jpg' as the first entry.
   photoCandidates: [
-    "https://lh3.googleusercontent.com/d/1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz=w1000",
-    "https://drive.google.com/thumbnail?id=1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz&sz=w1000",
-    `https://github.com/${GITHUB_USERNAME}.png`,
+    'https://lh3.googleusercontent.com/d/1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz=w600',
+    'https://drive.google.com/thumbnail?id=1vVinkB7RzjKnjgFL6vbwbK9SMP1jPJSz&sz=w600',
   ],
-  photoFallback: "/profile-fallback.svg",
-  email: "devdahiya4002@gmail.com",
-  phone: "+91 74045 12322",
-  resumeUrl: "/Dev_Kumar_Dahiya_Resume.pdf",
-  // Optional: paste a Formspree endpoint (https://formspree.io/f/xxxx) to receive
-  // messages in your inbox. Leave empty to open the visitor's email client instead.
-  formEndpoint: "",
-  socials: {
-    github: `https://github.com/${GITHUB_USERNAME}`,
-    linkedin: "https://linkedin.com/in/devkumardahiya",
-  },
+  email: 'devdahiya4002@gmail.com',
+  resumeUrl: '/Dev_Kumar_Dahiya_Resume.pdf',
+  github: `https://github.com/${GITHUB_USERNAME}`,
+  linkedin: 'https://www.linkedin.com/in/devkumardahiya',
+  openTo: 'Open to Software Engineer, AI/ML Engineer, Backend and Data Engineer roles, on-site, hybrid or remote.',
 };
 
-export const about =
-  "Software engineer focused on building production-quality web and AI systems: scalable backends, cloud-native deployments, and performant frontends. Experienced in React, Node.js, C#, and data/ML pipelines. I deliver reliable systems, ship features end-to-end, and mentor cross-functional teams to production.";
+export type Area = 'AI & LLMs' | 'Backend & full stack' | 'Data';
 
-export let stats = [
-  { label: "Projects", value: "0", suffix: "+" },
-  { label: "Experience (internships)", value: "2", suffix: "+" },
-  { label: "GitHub contributions", value: "500", suffix: "+" },
-  { label: "Publications", value: "1", suffix: "" },
+export interface Project {
+  name: string;
+  repo: string;
+  area: Area;
+  summary: string;
+  stack: string[];
+  live?: string;
+}
+
+// The featured project gets the large slot at the top of "Selected work".
+export const featured = {
+  name: 'PIE Job Agent',
+  repo: gh('pie-job-agent'),
+  summary:
+    'A personal job-search agent. It pulls openings from public job boards, has Claude shortlist them against a verified profile, builds a tailored resume for each one and prepares the application, all tracked in a dashboard.',
+  steps: [
+    'Finds jobs from the Greenhouse public job-board API',
+    'Claude scores and shortlists them against my real profile',
+    'Builds a job-specific resume from the master resume',
+    'Runs the application in a real browser as a dry run, and only submits after I confirm',
+  ],
+  stack: ['FastAPI', 'SQLAlchemy', 'Alembic', 'Claude API', 'Playwright', 'Next.js', 'TypeScript', 'pytest'],
+};
+
+export const projects: Project[] = [
+  {
+    name: 'Deepfake Audio Detection',
+    repo: gh('deepfake-audio-detection'),
+    area: 'AI & LLMs',
+    summary:
+      'Classifies speech as real or AI-generated with a CNN + BiLSTM + attention model, with training, evaluation and FastAPI / Streamlit apps for inference.',
+    stack: ['Python', 'TensorFlow', 'librosa', 'FastAPI', 'Streamlit'],
+  },
+  {
+    name: 'OCR Bill Analyzer',
+    repo: gh('Invoice_Parser'),
+    area: 'AI & LLMs',
+    summary:
+      'Turns PDF bills and invoices into structured JSON: EasyOCR reads the page, then Groq and Gemini LLMs extract the fields, behind a FastAPI API.',
+    stack: ['Python', 'FastAPI', 'EasyOCR', 'Gemini', 'Groq'],
+  },
+  {
+    name: 'OrbitX',
+    repo: gh('OrbitX'),
+    area: 'AI & LLMs',
+    summary:
+      'Batch document pipeline that spots invoices and contracts, extracts typed fields and a summary with an LLM, validates them and writes JSON.',
+    stack: ['Python', 'OpenAI API', 'Pydantic', 'PyMuPDF'],
+  },
+  {
+    name: 'LLM Prompt & Response Evaluator',
+    repo: gh('prompt-response-evaluator'),
+    area: 'AI & LLMs',
+    summary:
+      'REST API where users submit prompts, attach model responses, get them scored automatically and track the results over time.',
+    stack: ['Django REST Framework', 'PostgreSQL', 'JWT', 'NumPy', 'Pandas'],
+  },
+  {
+    name: 'BIOMED XPERT CRM',
+    repo: gh('biomed-xpert-crm'),
+    area: 'Backend & full stack',
+    summary:
+      'Lead and sales tracker for a biomedical equipment business, with a six-stage pipeline and Excel, CSV and PDF exports.',
+    stack: ['TypeScript', 'React', 'Express', 'Prisma', 'Docker'],
+  },
+  {
+    name: 'Leave Request Management',
+    repo: gh('leave-management-system'),
+    area: 'Backend & full stack',
+    summary: 'Full-stack leave requests and approvals with JWT login and role-based access.',
+    stack: ['React', 'Express', 'MongoDB', 'JWT'],
+  },
+  {
+    name: 'Smart Hospital Management',
+    repo: gh('Smart-Hospital-Management-System'),
+    area: 'Backend & full stack',
+    summary:
+      'Hospital workflow app with role-based logins for admins, doctors and patients, appointments, prescriptions, reports and emergency alerts.',
+    stack: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
+  },
+  {
+    name: 'Emotion-Based Music Recommender',
+    repo: gh('emotion-based-music-recommender'),
+    area: 'AI & LLMs',
+    summary: 'Reads your facial emotion from the webcam and recommends songs that match the mood.',
+    stack: ['Python', 'TensorFlow', 'OpenCV', 'Streamlit'],
+  },
+  {
+    name: 'Test Drive Analytics Dashboard',
+    repo: gh('crestwyn-test-drive-analytics-dashboard'),
+    area: 'Data',
+    summary:
+      'Multi-page BI dashboard covering a year of test drives, consultant performance, satisfaction and purchase conversion for a showroom.',
+    stack: ['Data visualization', 'Analytics'],
+  },
 ];
 
 export const experience = [
   {
-    role: "Full-Stack Software Developer",
-    org: "ethara.ai",
-    domain: "ethara.ai",
-    url: "https://www.ethara.ai/",
-    location: "Gurugram, India",
-    period: "May 2026 - Present",
-    // Local or hosted image for the company (place file at public/ethara.jpg)
-    image: "/ethara.jpg",
+    role: 'Software Developer',
+    org: 'Ethara AI',
+    url: 'https://www.ethara.ai/',
+    place: 'Gurugram',
+    start: 'May 2026',
+    end: 'Present',
     points: [
-      "Build and ship full-stack features across a React/TypeScript frontend and a Node.js backend, owning work from API design through UI delivery.",
-      "Develop and integrate REST APIs and database models, and collaborate through code reviews and deployments in an AI product environment.",
-      "Improve application performance and reliability while contributing to architecture decisions for new features.",
+      'Built 8 REST APIs and backend services that add LLM features to live products.',
+      'Made APIs 30% faster with better queries and caching, and raised unit-test coverage to 80%.',
+      'Shipped 6 full-stack features in 2-week Agile sprints with design and product.',
     ],
   },
   {
-    role: "Associate Software Engineer Intern",
-    org: "MAQ Software",
-    domain: "maqsoftware.com",
-    url: "https://maqsoftware.com/",
-    location: "Noida, India",
-    period: "Nov 2025 - Feb 2026",
-    // Local or hosted image for MAQ (place file at public/maq.jpg)
-    image: "/maq.jpg",
+    role: 'Associate Software Engineer Intern',
+    org: 'MAQ Software',
+    url: 'https://maqsoftware.com/',
+    place: 'Noida',
+    start: 'Nov 2025',
+    end: 'Feb 2026',
     points: [
-      "Built and optimized backend services in C# and ASP.NET, improving reliability and scalability of business-facing applications.",
-      "Designed interactive Power BI dashboards turning raw operational data into decision-ready business-intelligence views.",
-      "Engineered data workflows in Microsoft Fabric and Azure Data Factory to consolidate analytics-ready datasets.",
+      'Built automated ETL pipelines in Microsoft Fabric and Azure Data Factory that load and clean 1M records.',
+      'Built 5 Power BI dashboards that bring together business data from 4 sources.',
+      'Wrote 10 backend APIs in C# and ASP.NET and managed Azure setups for dev and staging.',
     ],
   },
   {
-    role: "Artificial Intelligence Intern",
-    org: "Horizon 17 Technologies",
-    domain: "horizon17ww.com",
-    url: "http://www.horizon17ww.com/",
-    location: "Gurugram, India",
-    period: "May 2025 - Jul 2025",
+    role: 'AI Intern',
+    org: 'Horizon17',
+    url: 'http://www.horizon17ww.com/',
+    place: 'Gurugram',
+    start: 'May 2025',
+    end: 'Jul 2025',
     points: [
-      "Designed an AI system that reads invoices and estimates the carbon emissions tied to each, automating a manual assessment.",
-      "Integrated GROQ-served LLMs to extract and interpret structured and unstructured data from uploaded documents.",
-      "Built a pipeline that converts extracted data into carbon-usage metrics and clear environmental insights.",
+      'Built a Generative AI system that reads scanned invoices with OCR and LLMs and estimates the carbon emissions behind each one.',
+      'Reached 90% extraction accuracy on 500 invoices by improving prompts and checking the LLM’s answers.',
+      'Built the pipeline and charts for carbon-use numbers, cutting manual data entry by 60%.',
     ],
   },
-];
-
-export interface Project {
-  name: string;
-  blurb: string;
-  tags: string[];
-  image: string;      // real photo from the web (primary)
-  cover: string;      // illustration fallback if the photo fails
-  repo?: string;      // GitHub repo name (enables the live preview image)
-  github?: string;
-  live?: string;
-  accent: [string, string]; // gradient for the generated cover
-}
-
-// Projects from GitHub (github.com/Dev123dahiya). Each links to its real repo
-// and shows the repo's live GitHub preview image over a themed photo.
-const P = "?auto=format&fit=crop&w=1000&q=70";
-const gh = (repo: string) => `https://github.com/${GITHUB_USERNAME}/${repo}`;
-
-export const featured: Project[] = [
-  {
-    name: "Deepfake Audio Detection",
-    image: "https://images.unsplash.com/photo-1780723131289-c2ac00c07ea1" + P,
-    cover: "/covers/deepvoice.svg",
-    blurb:
-      "Deep-learning system that flags spoofed (deepfake) audio from spectrogram features. The research direction behind my ICICC 2026 paper reporting 99.33% accuracy.",
-    tags: ["Python", "Jupyter", "Deep Learning", "Audio"],
-    repo: "Foreign-seek-deepfake-audio-detection",
-    github: gh("Foreign-seek-deepfake-audio-detection"),
-    accent: ["#7C5CFC", "#EC4899"],
-  },
-  {
-    name: "Forest Fire Detection",
-    image: "https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6" + P,
-    cover: "/covers/fire.svg",
-    blurb:
-      "Convolutional neural network that detects forest fires from imagery, aimed at fast early-warning classification.",
-    tags: ["Python", "Jupyter", "CNN", "Computer Vision"],
-    repo: "Forest-Fire-Detection",
-    github: gh("Forest-Fire-Detection"),
-    accent: ["#F59E0B", "#EC4899"],
-  },
-  {
-    name: "Malware Detection",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" + P,
-    cover: "/covers/security.svg",
-    blurb:
-      "Machine-learning model that classifies software as malicious or benign from extracted features, applied to security screening.",
-    tags: ["Python", "Jupyter", "Machine Learning", "Security"],
-    repo: "Malware-Detection",
-    github: gh("Malware-Detection"),
-    accent: ["#EC4899", "#7C5CFC"],
-  },
-  {
-    name: "QR Detection System",
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf" + P,
-    cover: "/covers/qr.svg",
-    blurb:
-      "Computer-vision system that detects and decodes QR codes from images and a live camera feed.",
-    tags: ["Python", "OpenCV", "Computer Vision"],
-    repo: "QR-Detection-System",
-    github: gh("QR-Detection-System"),
-    accent: ["#5B8DEF", "#7C5CFC"],
-  },
-  {
-    name: "QR Toolkit",
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf" + P,
-    cover: "/covers/qr.svg",
-    blurb:
-      "A web-based toolkit for generating and working with QR codes, built with a lightweight HTML and JavaScript frontend.",
-    tags: ["HTML", "JavaScript", "QR"],
-    repo: "QR-things",
-    github: gh("QR-things"),
-    accent: ["#22D3EE", "#5B8DEF"],
-  },
-  {
-    name: "Weather Explorer",
-    image: "https://images.unsplash.com/photo-1603437873662-dc1f44901825" + P,
-    cover: "/covers/weather.svg",
-    blurb:
-      "Weather data exploration and visualization notebook that pulls conditions and charts trends over time.",
-    tags: ["Python", "Jupyter", "Pandas", "Data Viz"],
-    repo: "weather",
-    github: gh("weather"),
-    accent: ["#5B8DEF", "#22D3EE"],
-  },
-];
-
-// Ensure stats projects count reflects featured array length (avoid forward reference)
-stats[0].value = String(featured.length);
-
-export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "SQL"] },
-  { group: "Frameworks", items: ["React", "Node.js", "Express", "ASP.NET", "FastAPI", "Flask"] },
-  { group: "AI / ML", items: ["PyTorch", "OpenCV", "CNN", "BiLSTM + Attention", "LLMs (GROQ)", "NumPy", "Pandas"] },
-  { group: "Data & Cloud", items: ["Azure", "Azure Data Factory", "Microsoft Fabric", "Power BI", "PySpark", "GCP"] },
-  { group: "Databases", items: ["MongoDB", "MongoDB Atlas", "SQL"] },
-  { group: "Dev & Infra", items: ["Git", "Docker", "Docker Compose", "Socket.IO", "JWT"] },
 ];
 
 export const publication = {
-  title: "Forensic Deepfake Audio Detection Using a CNN-Attention Mechanism",
-  venue: "International Conference on Intelligent Computing and Communication (ICICC 2026)",
-  date: "Feb 2026",
-  points: [
-    "Combined mel-spectrogram and MFCC features with a BiLSTM + Attention architecture for robust audio analysis.",
-    "Achieved 99.33% accuracy across multiple accents, enabling real-time cross-lingual deepfake detection.",
-  ],
+  title: 'Forensic Deepfake Audio Detection Using CNN-Attention Mechanism',
+  venue: 'ICICC 2026, Springer Lecture Notes in Networks and Systems (Innovative Computing and Communications)',
+  url: 'https://link.springer.com/chapter/10.1007/978-3-032-28594-2_9',
+  summary:
+    'We trained a CNN + BiLSTM model with attention on MFCC and Mel-spectrogram features to tell real voices from AI-generated ones. It reached 99.33% accuracy on 10,000 audio clips across accents.',
+  repo: gh('deepfake-audio-detection'),
 };
 
+export const skills: { group: string; items: string[] }[] = [
+  { group: 'Languages', items: ['Python', 'SQL', 'C#', 'TypeScript', 'JavaScript', 'C++'] },
+  { group: 'AI & LLMs', items: ['LLM APIs (Claude, OpenAI, Groq, Gemini)', 'RAG and agents', 'Prompt engineering', 'PyTorch', 'TensorFlow', 'OpenCV', 'OCR'] },
+  { group: 'Backend & web', items: ['FastAPI', 'Django REST Framework', 'ASP.NET', 'Node.js and Express', 'React', 'Next.js', 'REST APIs', 'JWT auth'] },
+  { group: 'Data & cloud', items: ['PostgreSQL', 'MongoDB', 'Microsoft Azure', 'Azure Data Factory', 'Microsoft Fabric', 'Power BI', 'Docker', 'Git and CI/CD'] },
+];
+
 export const education = {
-  school: "Amity University",
-  domain: "amity.edu",
-  location: "Noida, Uttar Pradesh",
-  degree: "B.Tech, Computer Science",
-  detail: "CGPA 8.60",
-  period: "Aug 2022 - May 2026",
-  // Optional: path to a local or hosted image for the school (place file in public/)
-  // Example: "/education.jpg"
-  image: "/education.jpg",
+  degree: 'B.Tech in Computer Science and Engineering',
+  school: 'Amity University, Noida',
+  years: '2022 – 2026',
+  grade: 'CGPA 8.60',
+  certifications: [
+    'Microsoft Certified: Fabric Data Engineer Associate (DP-700)',
+    'Oracle Database certification',
+    'IBM Cybersecurity Fundamentals',
+  ],
 };

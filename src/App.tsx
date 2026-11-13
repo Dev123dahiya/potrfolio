@@ -1,40 +1,29 @@
-import AnimatedBackground from './components/AnimatedBackground';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
-import Experience from './components/Experience';
 import Projects from './components/Projects';
-import { About, Skills, Research, Contact, Footer } from './components/Rest';
-import CommandPalette from './components/CommandPalette';
-import { useEffect, useState } from 'react';
+import Experience from './components/Experience';
+import Research from './components/Research';
+import About from './components/About';
+import Contact from './components/Contact';
 
 export default function App() {
-  const [paletteOpen, setPaletteOpen] = useState(false);
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault(); setPaletteOpen((p) => !p);
-      }
-    }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
   return (
-    <div className="relative min-h-screen">
-      <AnimatedBackground />
-      <div className="relative z-10">
-        <Nav />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Research />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+    <div className="min-h-screen">
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-white"
+      >
+        Skip to projects
+      </a>
+      <Nav />
+      <main>
+        <Hero />
+        <Projects />
+        <Experience />
+        <Research />
+        <About />
+        <Contact />
+      </main>
     </div>
   );
 }
